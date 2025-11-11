@@ -329,6 +329,9 @@
           };
 
           sessionStorage.setItem('techEaseLastOrder', JSON.stringify(orderData));
+          const ordersHistory = JSON.parse(localStorage.getItem('techEaseOrdersHistory')) || [];
+          ordersHistory.push(orderData);
+          localStorage.setItem('techEaseOrdersHistory', JSON.stringify(ordersHistory));
 
           cart.length = 0;
           saveCart();

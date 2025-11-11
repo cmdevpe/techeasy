@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Registro de Usuario - TechEase</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0da6f2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+        
+        <div class="layout-container flex h-full grow flex-col">
+            <div class="flex flex-1 justify-center">
+                <div class="layout-content-container flex w-full flex-col max-w-6xl px-4 sm:px-6 lg:px-8">
+                    
+                    <div id="header-placeholder"></div>
+
+                    <main class="flex flex-1 items-center justify-center py-12 px-4 sm:px-6 md:px-8">
+                        <div class="w-full max-w-md space-y-8">
+                            <div class="text-center">
+                                <h1 class="text-3xl font-bold text-gray-900 dark:text-white tracking-tight">Crea tu Cuenta</h1>
+                                <p class="mt-2 text-gray-600 dark:text-gray-400">Regístrate para empezar a comprar.</p>
+                            </div>
+
+                            <div class="bg-white dark:bg-[#1b2327] shadow-sm border border-gray-200 dark:border-gray-700/50 rounded-xl p-6 sm:p-8">
+                                <form id="register-form" class="space-y-6">
+                                    
+                                    <div>
+                                        <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Nombre Completo</label>
+                                        <div class="mt-1">
+                                            <input id="name" name="name" type="text" autocomplete="name" required
+                                                class="w-full rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:border-primary focus:ring-primary dark:text-white"
+                                                placeholder="Introduce tu nombre">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Email</label>
+                                        <div class="mt-1">
+                                            <input id="email" name="email" type="email" autocomplete="email" required
+                                                class="w-full rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:border-primary focus:ring-primary dark:text-white"
+                                                placeholder="Introduce tu correo electrónico">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Contraseña</label>
+                                        <div class="mt-1 relative">
+                                            <input id="password" name="password" type="password" autocomplete="new-password" required
+                                                class="w-full rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:border-primary focus:ring-primary dark:text-white"
+                                                placeholder="Crea una contraseña segura">
+                                            <button type="button" id="toggle-password" class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 dark:text-gray-400">
+                                                <span class="material-symbols-outlined text-lg">visibility</span>
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label for="confirm-password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Confirmar Contraseña</label>
+                                        <div class="mt-1 relative">
+                                            <input id="confirm-password" name="confirm_password" type="password" autocomplete="new-password" required
+                                                class="w-full rounded-lg border-gray-300 dark:border-gray-700 bg-gray-50 dark:bg-gray-800/50 focus:border-primary focus:ring-primary dark:text-white"
+                                                placeholder="Repite la contraseña">
+                                            <button type="button" id="toggle-confirm-password" class="absolute inset-y-0 right-0 flex items-center px-3 text-gray-500 dark:text-gray-400">
+                                                <span class="material-symbols-outlined text-lg">visibility</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <p id="error-message" class="text-sm text-red-600 dark:text-red-400 hidden"></p>
+
+                                    <div>
+                                        <button type="submit"
+                                            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-base font-bold text-white bg-primary hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+                                            Registrarse
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <p class="text-center text-sm text-gray-600 dark:text-gray-400">
+                                ¿Ya tienes una cuenta?
+                                <a href="login.html" class="font-medium text-primary hover:underline">Inicia sesión</a>
+                            </p>
+                        </div>
+                    </main>
+
+                    <div id="footer-placeholder"></div>
+
+                </div>
+            </div>
+        </div>
+        
+        <div id="modals-placeholder"></div>
+
+    </div>
+
+    <script type="module">
+        import { loadLayout } from './js/loader.js';
+        await loadLayout();
+        
+        import { initializeApp } from './js/app.js';
+        initializeApp();
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const registerForm = document.getElementById("register-form");
+            const errorMessage = document.getElementById("error-message");
+            const passwordInput = document.getElementById("password");
+            const confirmPasswordInput = document.getElementById("confirm-password");
+            const togglePasswordBtn = document.getElementById("toggle-password");
+            const toggleConfirmPasswordBtn = document.getElementById("toggle-confirm-password");
+
+            const setupPasswordToggle = (button, input) => {
+                button.addEventListener("click", () => {
+                    const type = input.getAttribute("type") === "password" ? "text" : "password";
+                    input.setAttribute("type", type);
+                    
+                    const icon = button.querySelector("span");
+                    icon.textContent = type === "password" ? "visibility" : "visibility_off";
+                });
+            };
+
+            setupPasswordToggle(togglePasswordBtn, passwordInput);
+            setupPasswordToggle(toggleConfirmPasswordBtn, confirmPasswordInput);
+
+            registerForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                errorMessage.classList.add("hidden");
+
+                const name = e.target.name.value.trim();
+                const email = e.target.email.value.trim();
+                const password = passwordInput.value;
+                const confirmPassword = confirmPasswordInput.value;
+                
+                if (password !== confirmPassword) {
+                    errorMessage.textContent = "La contraseña y la confirmación no coinciden.";
+                    errorMessage.classList.remove("hidden");
+                    return;
+                }
+                
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                     errorMessage.textContent = "Por favor, introduce un correo electrónico válido.";
+                     errorMessage.classList.remove("hidden");
+                     return;
+                }
+                
+                const users = JSON.parse(localStorage.getItem('techEaseUsers')) || [];
+                
+                const foundUser = users.find(user => user.email === email);
+
+                if (foundUser) {
+                    errorMessage.textContent = "El correo electrónico ya está registrado.";
+                    errorMessage.classList.remove("hidden");
+                } else {
+                    const newUser = {
+                        id: Date.now(),
+                        name: name,
+                        email: email,
+                        password: password 
+                    };
+
+                    users.push(newUser);
+                    localStorage.setItem('techEaseUsers', JSON.stringify(users));
+                    
+                    sessionStorage.setItem('techEaseUser', JSON.stringify(newUser)); 
+                    alert("Registro exitoso. ¡Bienvenido!");
+                    window.location.href = 'dashboard.html';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

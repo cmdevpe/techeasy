@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Historial de Pedidos - TechEase</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#0da6f2",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#101c22",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+    <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+        <div class="layout-container flex h-full grow flex-col">
+            
+            <div class="flex flex-1 justify-center">
+                <div class="layout-content-container flex w-full flex-col max-w-6xl px-4 sm:px-6 lg:px-8">
+                    
+                    <div id="header-placeholder"></div>
+
+                    <main class="flex flex-1 justify-center py-8 px-4 sm:px-6 md:px-8">
+                        <div class="layout-content-container flex flex-col w-full max-w-4xl flex-1">
+                            
+                            <h1 class="text-gray-900 dark:text-white tracking-tight text-3xl sm:text-4xl font-black leading-tight pb-2">Tu Historial de Pedidos</h1>
+                            <p class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal max-w-lg mb-8">Aquí se muestran tus compras finalizadas.</p>
+
+                            <div id="orders-list-container" class="space-y-6">
+                                
+                                <div id="no-orders-message" class="hidden text-center py-16 bg-white dark:bg-[#1b2327] rounded-xl border border-gray-200 dark:border-gray-700/50">
+                                    <span class="material-symbols-outlined text-8xl mb-4 text-gray-400">receipt_long</span>
+                                    <p class="text-2xl font-bold text-gray-900 dark:text-white">No tienes pedidos anteriores</p>
+                                    <p class="text-gray-500 dark:text-gray-400">Visita la <a href="index.html" class="text-primary hover:underline">tienda</a> para empezar a comprar.</p>
+                                </div>
+
+                                </div>
+                            
+                            <a href="dashboard.html" class="mt-8 flex w-full sm:w-auto max-w-xs cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 gap-2 text-base font-bold leading-normal tracking-wide min-w-0 px-6 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                                Volver al Dashboard
+                            </a>
+
+                        </div>
+                    </main>
+                    
+                    <div id="footer-placeholder"></div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="modals-placeholder"></div>
+
+    <script type="module">
+        import { loadLayout } from './js/loader.js';
+        await loadLayout();
+        
+        import { initializeApp } from './js/app.js';
+        initializeApp();
+
+        function renderOrdersHistory() {
+            const listContainer = document.getElementById('orders-list-container');
+            const noOrdersMessage = document.getElementById('no-orders-message');
+            
+            // Usamos localStorage para simular el historial persistente de pedidos
+            const ordersHistory = JSON.parse(localStorage.getItem('techEaseOrdersHistory')) || [];
+
+            // Nos aseguramos de incluir el último pedido de sessionStorage (si existe) 
+            // y lo movemos a localStorage para persistencia futura.
+            const lastOrderString = sessionStorage.getItem('techEaseLastOrder');
+            if (lastOrderString) {
+                try {
+                    const lastOrder = JSON.parse(lastOrderString);
+                    // Solo guarda si no es un duplicado (basado en orderNumber, que usa timestamp)
+                    if (!ordersHistory.some(order => order.orderNumber === lastOrder.orderNumber)) {
+                        ordersHistory.push(lastOrder);
+                        localStorage.setItem('techEaseOrdersHistory', JSON.stringify(ordersHistory));
+                    }
+                    sessionStorage.removeItem('techEaseLastOrder');
+                } catch (e) {
+                    console.error("Error al procesar el último pedido en sessionStorage:", e);
+                }
+            }
+
+            if (ordersHistory.length === 0) {
+                noOrdersMessage.classList.remove('hidden');
+                return;
+            }
+            
+            noOrdersMessage.classList.add('hidden');
+            listContainer.innerHTML = ''; 
+
+            // Mostrar pedidos del más reciente al más antiguo
+            ordersHistory.sort((a, b) => (b.orderNumber > a.orderNumber) ? 1 : -1);
+
+            ordersHistory.forEach(order => {
+                const itemsHtml = order.items.map(item => `
+                    <li class="flex items-center gap-4 py-2 border-b border-gray-100 dark:border-gray-800/50">
+                        <div class="w-12 h-12 bg-gray-100 dark:bg-gray-800 rounded-lg flex-shrink-0">
+                            <img class="h-full w-full object-cover rounded-lg" alt="${item.alt}" src="${item.img}"/>
+                        </div>
+                        <div class="flex-grow">
+                            <p class="font-medium text-gray-900 dark:text-white text-sm">${item.name}</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">Cant: ${item.quantity}</p>
+                        </div>
+                        <p class="font-semibold text-gray-900 dark:text-white text-sm">S/ ${ (item.price * item.quantity).toFixed(2) }</p>
+                    </li>
+                `).join('');
+
+                const orderHTML = `
+                    <div class="bg-white dark:bg-[#1b2327] rounded-xl shadow-sm border border-gray-200 dark:border-gray-700/50 p-6">
+                        <div class="flex justify-between items-center border-b border-gray-200 dark:border-gray-700/50 pb-4 mb-4">
+                            <div>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Pedido</p>
+                                <p class="text-lg font-bold text-gray-900 dark:text-white">${order.orderNumber}</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-sm text-gray-600 dark:text-gray-400">Total</p>
+                                <p class="text-lg font-bold text-gray-900 dark:text-white">S/ ${order.total}</p>
+                            </div>
+                        </div>
+                        
+                        <ul class="divide-y divide-gray-200 dark:divide-gray-800">
+                            ${itemsHtml}
+                        </ul>
+
+                        <div class="flex justify-end pt-4">
+                            <span class="text-sm font-medium text-green-600 dark:text-green-400">Entregado (${order.estimatedDelivery})</span>
+                        </div>
+                    </div>
+                `;
+                listContainer.insertAdjacentHTML('beforeend', orderHTML);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+             // Redirección de protección
+            const userData = sessionStorage.getItem('techEaseUser');
+            if (!userData) {
+                sessionStorage.setItem('techEaseRedirectTo', window.location.href);
+                window.location.href = 'login.html';
+                return;
+            }
+
+            renderOrdersHistory();
+        });
+    </script>
+</body>
+</html>
