@@ -1,502 +1,441 @@
 <!DOCTYPE html>
 <html class="dark" lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Detalle de Producto - TechEase</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-      rel="stylesheet"
-    />
-    <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#0da6f2",
-              "background-light": "#f5f7f8",
-              "background-dark": "#101c22",
-            },
-            fontFamily: {
-              display: ["Space Grotesk"],
-            },
-            borderRadius: {
-              DEFAULT: "0.25rem",
-              lg: "0.5rem",
-              xl: "0.75rem",
-              full: "9999px",
-            },
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Detalle de Producto - TechEase</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#0da6f2",
+            "background-light": "#f5f7f8",
+            "background-dark": "#101c22",
+          },
+          fontFamily: {
+            display: ["Space Grotesk"],
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px",
           },
         },
-      };
-    </script>
-    <style>
-      .material-symbols-outlined {
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-      }
-      .material-symbols-outlined.filled {
-        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
-      }
-      @keyframes pop {
-        0% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.3);
-        }
-        100% {
-          transform: scale(1);
-        }
-      }
-      .pop-animation {
-        animation: pop 0.3s ease-out;
-      }
-    </style>
-  </head>
+      },
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
 
-  <body
-    class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200"
-  >
-    <div
-      class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden"
-    >
-      <div class="layout-container flex h-full grow flex-col">
-        <div class="flex flex-1 justify-center">
-          <div
-            class="layout-content-container flex w-full flex-col max-w-6xl px-4 sm:px-6 lg:px-8"
-          >
-            <div id="header-placeholder"></div>
+    .material-symbols-outlined.filled {
+      font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+    }
 
-            <main class="flex flex-1 justify-center py-5">
-              <div
-                class="layout-content-container flex flex-col w-full max-w-6xl flex-1 px-4 md:px-8 lg:px-10"
-              >
-                <div class="flex flex-wrap gap-2 py-4">
-                  <a
-                    class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary transition-colors"
-                    href="index.html"
-                    >Inicio</a
-                  >
-                  <span
-                    class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal"
-                    >/</span
-                  >
-                  <a
-                    id="breadcrumb-category"
-                    class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary transition-colors"
-                    href="index.html"
-                    >Categoría</a
-                  >
-                  <span
-                    class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal"
-                    >/</span
-                  >
-                  <span
-                    id="breadcrumb-product-name"
-                    class="text-gray-900 dark:text-white text-sm font-medium leading-normal"
-                    >Nombre del Producto</span
-                  >
+    @keyframes pop {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.3);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .pop-animation {
+      animation: pop 0.3s ease-out;
+    }
+  </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200">
+  <div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+      <div class="flex flex-1 justify-center">
+        <div class="layout-content-container flex w-full flex-col max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div id="header-placeholder"></div>
+
+          <main class="flex flex-1 justify-center py-5">
+            <div class="layout-content-container flex flex-col w-full max-w-6xl flex-1 px-4 md:px-8 lg:px-10">
+              <div class="flex flex-wrap gap-2 py-4">
+                <a class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                  href="index.html">Inicio</a>
+                <span class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">/</span>
+                <a id="breadcrumb-category"
+                  class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                  href="index.html">Categoría</a>
+                <span class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">/</span>
+                <span id="breadcrumb-product-name"
+                  class="text-gray-900 dark:text-white text-sm font-medium leading-normal">Nombre del Producto</span>
+              </div>
+
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mt-4">
+                <div class="flex flex-col gap-4">
+                  <div
+                    class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-gray-200 dark:bg-gray-700 rounded-xl min-h-80 aspect-square">
+                    <img id="product-image-main" src="https://placehold.co/600x600/101c22/f5f7f8?text=Cargando..."
+                      alt="Producto" class="w-full h-full object-cover rounded-xl" />
+                  </div>
+                  <div id="product-gallery-thumbnails" class="grid grid-cols-4 gap-4"></div>
                 </div>
 
-                <div
-                  class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mt-4"
-                >
-                  <div class="flex flex-col gap-4">
-                    <div
-                      class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-gray-200 dark:bg-gray-700 rounded-xl min-h-80 aspect-square"
-                    >
-                      <img
-                        id="product-image-main"
-                        src="https://placehold.co/600x600/101c22/f5f7f8?text=Cargando..."
-                        alt="Producto"
-                        class="w-full h-full object-cover rounded-xl"
-                      />
-                    </div>
-                    <div
-                      id="product-gallery-thumbnails"
-                      class="grid grid-cols-4 gap-4"
-                    ></div>
-                  </div>
-
-                  <div class="flex flex-col gap-4">
-                    <div class="flex flex-col gap-2">
-                      <p
-                        id="product-brand"
-                        class="text-primary text-sm font-bold uppercase tracking-wider"
-                      >
-                        MARCA
-                      </p>
-                      <h1
-                        id="product-name"
-                        class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]"
-                      >
-                        Nombre del Producto
-                      </h1>
-                      <p
-                        id="product-description"
-                        class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal"
-                      >
-                        Descripción del producto...
-                      </p>
-                    </div>
-                    <div class="flex items-center gap-4 py-2">
-                      <div class="flex items-center gap-1">
-                        <span
-                          class="material-symbols-outlined text-yellow-400"
-                          style="font-variation-settings: 'FILL' 1"
-                          >star</span
-                        >
-                        <span
-                          class="material-symbols-outlined text-yellow-400"
-                          style="font-variation-settings: 'FILL' 1"
-                          >star</span
-                        >
-                        <span
-                          class="material-symbols-outlined text-yellow-400"
-                          style="font-variation-settings: 'FILL' 1"
-                          >star</span
-                        >
-                        <span
-                          class="material-symbols-outlined text-yellow-400"
-                          style="font-variation-settings: 'FILL' 1"
-                          >star</span
-                        >
-                        <span class="material-symbols-outlined text-yellow-400"
-                          >star_half</span
-                        >
-                      </div>
-                      <a
-                        class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-                        href="#reviews"
-                        >(120 Reseñas)</a
-                      >
-                    </div>
-                    <div class="flex items-baseline gap-3 pt-2">
-                      <h2
-                        id="product-price"
-                        class="text-gray-900 dark:text-white tracking-light text-[32px] font-bold leading-tight"
-                      >
-                        S/ 0.00
-                      </h2>
-                    </div>
-                    <p
-                      class="text-sm font-medium text-green-600 dark:text-green-400 flex items-center gap-2"
-                    >
-                      <span class="material-symbols-outlined text-base"
-                        >check_circle</span
-                      >
-                      En Stock
+                <div class="flex flex-col gap-4">
+                  <div class="flex flex-col gap-2">
+                    <p id="product-brand" class="text-primary text-sm font-bold uppercase tracking-wider">
+                      MARCA
                     </p>
+                    <h1 id="product-name"
+                      class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">
+                      Nombre del Producto
+                    </h1>
+                    <p id="product-description"
+                      class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal">
+                      Descripción del producto...
+                    </p>
+                  </div>
+                  <div class="flex items-center gap-4 py-2">
+                    <div class="flex items-center gap-1">
+                      <span class="material-symbols-outlined text-yellow-400"
+                        style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-yellow-400"
+                        style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-yellow-400"
+                        style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-yellow-400"
+                        style="font-variation-settings: 'FILL' 1">star</span>
+                      <span class="material-symbols-outlined text-yellow-400">star_half</span>
+                    </div>
+                    <a class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                      href="#reviews">(120 Reseñas)</a>
+                  </div>
+                  <div class="flex items-baseline gap-3 pt-2">
+                    <h2 id="product-price"
+                      class="text-gray-900 dark:text-white tracking-light text-[32px] font-bold leading-tight">
+                      S/ 0.00
+                    </h2>
+                  </div>
+                  <p class="text-sm font-medium text-green-600 dark:text-green-400 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base">check_circle</span>
+                    En Stock
+                  </p>
 
-                    <div
-                      class="flex flex-col gap-4 py-6 border-t border-b border-gray-200 dark:border-gray-800"
-                    >
-                      <div class="flex items-center gap-4">
-                        <label class="text-sm font-medium" for="quantity"
-                          >Cantidad:</label
-                        >
-                        <div
-                          class="flex items-center border border-gray-300 dark:border-gray-700 rounded-md"
-                        >
-                          <button
-                            data-action="decrease"
-                            class="px-3 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-l-md transition-colors"
-                          >
-                            -
-                          </button>
-                          <input
-                            class="w-12 text-center bg-transparent border-x border-gray-300 dark:border-gray-700 focus:ring-0 focus:border-primary"
-                            id="quantity"
-                            type="text"
-                            value="1"
-                          />
-                          <button
-                            data-action="increase"
-                            class="px-3 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-r-md transition-colors"
-                          >
-                            +
-                          </button>
-                        </div>
+                  <div class="flex flex-col gap-4 py-6 border-t border-b border-gray-200 dark:border-gray-800">
+                    <div class="flex items-center gap-4">
+                      <label class="text-sm font-medium" for="quantity">Cantidad:</label>
+                      <div class="flex items-center border border-gray-300 dark:border-gray-700 rounded-md">
+                        <button data-action="decrease"
+                          class="px-3 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-l-md transition-colors">
+                          -
+                        </button>
+                        <input
+                          class="w-12 text-center bg-transparent border-x border-gray-300 dark:border-gray-700 focus:ring-0 focus:border-primary"
+                          id="quantity" type="text" value="1" />
+                        <button data-action="increase"
+                          class="px-3 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-r-md transition-colors">
+                          +
+                        </button>
                       </div>
-                      <button
-                        id="add-to-cart-detail-btn"
-                        class="w-full flex items-center justify-center gap-2 bg-primary text-white text-base font-bold leading-normal py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
-                      >
-                        <span class="material-symbols-outlined"
-                          >shopping_cart</span
-                        >
-                        Agregar al Carrito
-                      </button>
-                      <button
-                        id="add-to-favorite-detail-btn"
-                        class="w-full flex items-center justify-center gap-2 bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white text-base font-bold leading-normal py-3 px-6 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
-                      >
-                        <span class="material-symbols-outlined">favorite</span>
-                        <span class="text">Añadir a Favoritos</span>
-                      </button>
                     </div>
-                  </div>
-                </div>
-
-                <div class="w-full mt-12 lg:mt-16">
-                  <div class="border-b border-gray-200 dark:border-gray-700">
-                    <nav aria-label="Tabs" class="flex space-x-8">
-                      <button
-                        class="tab-button text-primary font-semibold py-4 px-1 border-b-2 border-primary text-base"
-                        data-tab="description"
-                      >
-                        Descripción
-                      </button>
-                      <button
-                        class="tab-button text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 py-4 px-1 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 transition-colors text-base"
-                        data-tab="specs"
-                      >
-                        Especificaciones
-                      </button>
-                      <button
-                        class="tab-button text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 py-4 px-1 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 transition-colors text-base"
-                        data-tab="reviews"
-                      >
-                        Reseñas
-                      </button>
-                    </nav>
-                  </div>
-                  <div id="tab-content" class="py-8">
-                    <div
-                      id="description-panel"
-                      class="tab-panel prose prose-lg dark:prose-invert max-w-none prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-headings:text-gray-900 dark:prose-headings:text-white"
-                    >
-                    </div>
-
-                    <div
-                      id="specs-panel"
-                      class="tab-panel hidden prose prose-lg dark:prose-invert max-w-none prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-headings:text-gray-900 dark:prose-headings:text-white"
-                    >
-                    </div>
-
-                    <div
-                      id="reviews-panel"
-                      class="tab-panel hidden prose prose-lg dark:prose-invert max-w-none prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-headings:text-gray-900 dark:prose-headings:text-white"
-                    >
-                    </div>
+                    <button id="add-to-cart-detail-btn"
+                      class="w-full flex items-center justify-center gap-2 bg-primary text-white text-base font-bold leading-normal py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
+                      <span class="material-symbols-outlined">shopping_cart</span>
+                      Agregar al Carrito
+                    </button>
+                    <button id="add-to-favorite-detail-btn"
+                      class="w-full flex items-center justify-center gap-2 bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white text-base font-bold leading-normal py-3 px-6 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
+                      <span class="material-symbols-outlined">favorite</span>
+                      <span class="text">Añadir a Favoritos</span>
+                    </button>
                   </div>
                 </div>
               </div>
-            </main>
 
-            <div id="footer-placeholder"></div>
-          </div>
+              <div class="w-full mt-12 lg:mt-16">
+                <div class="border-b border-gray-200 dark:border-gray-700">
+                  <nav aria-label="Tabs" class="flex space-x-8">
+                    <button class="tab-button text-primary font-semibold py-4 px-1 border-b-2 border-primary text-base"
+                      data-tab="description">
+                      Descripción
+                    </button>
+                    <button
+                      class="tab-button text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 py-4 px-1 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 transition-colors text-base"
+                      data-tab="specs">
+                      Especificaciones
+                    </button>
+                    <button
+                      class="tab-button text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 py-4 px-1 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 transition-colors text-base"
+                      data-tab="reviews">
+                      Reseñas
+                    </button>
+                  </nav>
+                </div>
+                <div id="tab-content" class="py-8">
+                  <div id="description-panel"
+                    class="tab-panel prose prose-lg dark:prose-invert max-w-none prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-headings:text-gray-900 dark:prose-headings:text-white">
+                  </div>
+
+                  <div id="specs-panel"
+                    class="tab-panel hidden prose prose-lg dark:prose-invert max-w-none prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-headings:text-gray-900 dark:prose-headings:text-white">
+                  </div>
+
+                  <div id="reviews-panel"
+                    class="tab-panel hidden prose prose-lg dark:prose-invert max-w-none prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-headings:text-gray-900 dark:prose-headings:text-white">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+
+          <div id="footer-placeholder"></div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div id="modals-placeholder"></div>
+  <div id="modals-placeholder"></div>
 
-    <script type="module">
-      import { loadLayout } from './js/loader.js';
-      await loadLayout();
+  <script type="module">
+    import { loadLayout } from "./js/loader.js";
+    await loadLayout();
 
-      import {
-        initializeApp,
-        allProducts,
-        cart,
-        favorites,
-        saveCart,
-        saveFavorites,
-        updateCartBadge,
-        updateFavoritesBadge,
-        getProductQuantityInCart,
-        removeAllOfProductFromCart
-      } from './js/app.js';
-      initializeApp();
+    import {
+      initializeApp,
+      allProducts,
+      cart,
+      favorites,
+      saveCart,
+      saveFavorites,
+      updateCartBadge,
+      updateFavoritesBadge,
+      getProductQuantityInCart,
+      removeAllOfProductFromCart,
+    } from "./js/app.js";
+    initializeApp();
 
-      const mainContent = document.querySelector(
-        'main .layout-content-container'
-      );
-      const breadcrumbCategory = document.getElementById('breadcrumb-category');
-      const breadcrumbProductName = document.getElementById(
-        'breadcrumb-product-name'
-      );
-      const productImageMain = document.getElementById('product-image-main');
-      const productBrand = document.getElementById('product-brand');
-      const productName = document.getElementById('product-name');
-      const productDescription = document.getElementById('product-description');
-      const productPrice = document.getElementById('product-price');
-      const addToCartBtn = document.getElementById('add-to-cart-detail-btn');
-      const addToFavBtn = document.getElementById('add-to-favorite-detail-btn');
-      const quantityInput = document.getElementById('quantity');
-      const quantityDecreaseBtn = document.querySelector(
-        '[data-action="decrease"]'
-      );
-      const quantityIncreaseBtn = document.querySelector(
-        '[data-action="increase"]'
-      );
-      const tabButtons = document.querySelectorAll('.tab-button');
-      const tabPanels = document.querySelectorAll('.tab-panel');
-      
-      const descriptionPanel = document.getElementById('description-panel');
-      const specsPanel = document.getElementById('specs-panel');
-      const reviewsPanel = document.getElementById('reviews-panel');
+    const mainContent = document.querySelector(
+      "main .layout-content-container"
+    );
+    const breadcrumbCategory = document.getElementById("breadcrumb-category");
+    const breadcrumbProductName = document.getElementById(
+      "breadcrumb-product-name"
+    );
+    const productImageMain = document.getElementById("product-image-main");
+    const productBrand = document.getElementById("product-brand");
+    const productName = document.getElementById("product-name");
+    const productDescription = document.getElementById("product-description");
+    const productPrice = document.getElementById("product-price");
+    const addToCartBtn = document.getElementById("add-to-cart-detail-btn");
+    const addToFavBtn = document.getElementById("add-to-favorite-detail-btn");
+    const quantityInput = document.getElementById("quantity");
+    const quantityDecreaseBtn = document.querySelector(
+      '[data-action="decrease"]'
+    );
+    const quantityIncreaseBtn = document.querySelector(
+      '[data-action="increase"]'
+    );
+    const tabButtons = document.querySelectorAll(".tab-button");
+    const tabPanels = document.querySelectorAll(".tab-panel");
 
-      function handleQuantityChange(amount) {
-        let currentValue = parseInt(quantityInput.value) || 1;
-        let newValue = currentValue + amount;
-        if (newValue < 1) {
-          newValue = 1;
-        }
-        quantityInput.value = newValue;
+    const descriptionPanel = document.getElementById("description-panel");
+    const specsPanel = document.getElementById("specs-panel");
+    const reviewsPanel = document.getElementById("reviews-panel");
+
+    function handleQuantityChange(amount) {
+      let currentValue = parseInt(quantityInput.value) || 1;
+      let newValue = currentValue + amount;
+      if (newValue < 1) {
+        newValue = 1;
       }
+      quantityInput.value = newValue;
+    }
 
-      function handleTabClick(event) {
-        const clickedButton = event.currentTarget;
-        const targetPanelId = clickedButton.dataset.tab + '-panel';
+    function handleTabClick(event) {
+      const clickedButton = event.currentTarget;
+      const targetPanelId = clickedButton.dataset.tab + "-panel";
 
-        tabPanels.forEach((panel) => {
-          panel.classList.add('hidden');
-        });
+      tabPanels.forEach((panel) => {
+        panel.classList.add("hidden");
+      });
 
-        tabButtons.forEach((button) => {
-          button.classList.remove('text-primary', 'border-primary');
-          button.classList.add(
-            'text-gray-500',
-            'dark:text-gray-400',
-            'border-transparent',
-            'hover:border-gray-300',
-            'dark:hover:border-gray-600'
-          );
-        });
-
-        const targetPanel = document.getElementById(targetPanelId);
-        if (targetPanel) {
-          targetPanel.classList.remove('hidden');
-        }
-
-        clickedButton.classList.add('text-primary', 'border-primary');
-        clickedButton.classList.remove(
-          'text-gray-500',
-          'dark:text-gray-400',
-          'border-transparent',
-          'hover:border-gray-300',
-          'dark:hover:border-gray-600'
+      tabButtons.forEach((button) => {
+        button.classList.remove("text-primary", "border-primary");
+        button.classList.add(
+          "text-gray-500",
+          "dark:text-gray-400",
+          "border-transparent",
+          "hover:border-gray-300",
+          "dark:hover:border-gray-600"
         );
+      });
+
+      const targetPanel = document.getElementById(targetPanelId);
+      if (targetPanel) {
+        targetPanel.classList.remove("hidden");
       }
 
-      function renderProductDetails(product) {
-        document.title = `${product.name} - TechEase`;
-        breadcrumbCategory.textContent = product.category;
-        breadcrumbCategory.href = `index.html?category=${product.category}`;
-        breadcrumbProductName.textContent = product.name;
-        productImageMain.src = product.img;
-        productImageMain.alt = product.alt;
-        productBrand.textContent = product.brand;
-        productName.textContent = product.name;
-        productDescription.textContent = product.alt;
-        productPrice.textContent = `S/ ${product.price.toFixed(2)}`;
-        
-        descriptionPanel.innerHTML = product.description || '<p>No hay descripción disponible.</p>';
-        specsPanel.innerHTML = product.specs || '<p>No hay especificaciones disponibles.</p>';
-        reviewsPanel.innerHTML = product.reviews || '<p>No hay reseñas disponibles.</p>';
+      clickedButton.classList.add("text-primary", "border-primary");
+      clickedButton.classList.remove(
+        "text-gray-500",
+        "dark:text-gray-400",
+        "border-transparent",
+        "hover:border-gray-300",
+        "dark:hover:border-gray-600"
+      );
+    }
+
+    function renderProductDetails(product) {
+      document.title = `${product.name} - TechEase`;
+      breadcrumbCategory.textContent = product.category;
+      breadcrumbCategory.href = `index.html?category=${product.category}`;
+      breadcrumbProductName.textContent = product.name;
+      productImageMain.src = product.img;
+      productImageMain.alt = product.alt;
+      productBrand.textContent = product.brand;
+      productName.textContent = product.name;
+      productDescription.textContent = product.alt;
+      productPrice.textContent = `S/ ${product.price.toFixed(2)}`;
+
+      descriptionPanel.innerHTML =
+        product.description || "<p>No hay descripción disponible.</p>";
+      specsPanel.innerHTML =
+        product.specs || "<p>No hay especificaciones disponibles.</p>";
+      reviewsPanel.innerHTML =
+        product.reviews || "<p>No hay reseñas disponibles.</p>";
+    }
+
+    function updateFavoriteButtonState(productId) {
+      const quantityInCart = getProductQuantityInCart(productId);
+      if (quantityInCart > 0) {
+        return;
       }
 
-      function updateFavoriteButtonState(productId) {
-        const quantityInCart = getProductQuantityInCart(productId);
+      const icon = addToFavBtn.querySelector(
+        "span.material-symbols-outlined"
+      );
+      const text = addToFavBtn.querySelector("span.text");
+
+      if (favorites.includes(productId)) {
+        icon.classList.add("filled", "text-red-500");
+        text.textContent = "Quitar de Favoritos";
+      } else {
+        icon.classList.remove("filled", "text-red-500");
+        text.textContent = "Añadir a Favoritos";
+      }
+    }
+
+    function renderDynamicButtons(product) {
+      const quantityInCart = getProductQuantityInCart(product.id);
+      const btn = document.getElementById("add-to-favorite-detail-btn");
+      const icon = btn.querySelector("span.material-symbols-outlined");
+      const text = btn.querySelector("span.text");
+
+      if (quantityInCart > 0) {
+        text.textContent = "Eliminar del Carrito";
+        icon.textContent = "delete_forever";
+        btn.classList.remove(
+          "bg-gray-200",
+          "dark:bg-gray-800",
+          "text-gray-900",
+          "dark:text-white",
+          "hover:bg-gray-300",
+          "dark:hover:bg-gray-700"
+        );
+        btn.classList.add(
+          "bg-red-600",
+          "text-white",
+          "hover:bg-red-700",
+          "dark:bg-red-700",
+          "dark:hover:bg-red-800"
+        );
+        icon.classList.remove("filled", "text-red-500");
+      } else {
+        btn.classList.add(
+          "bg-gray-200",
+          "dark:bg-gray-800",
+          "text-gray-900",
+          "dark:text-white",
+          "hover:bg-gray-300",
+          "dark:hover:bg-gray-700"
+        );
+        btn.classList.remove(
+          "bg-red-600",
+          "text-white",
+          "hover:bg-red-700",
+          "dark:bg-red-700",
+          "dark:hover:bg-red-800"
+        );
+        icon.textContent = "favorite";
+        updateFavoriteButtonState(product.id);
+      }
+    }
+
+    function setupDetailButtonListeners(product) {
+      addToCartBtn.addEventListener("click", () => {
+        const quantity = parseInt(quantityInput.value) || 1;
+        for (let i = 0; i < quantity; i++) {
+          cart.push(product);
+        }
+        saveCart();
+        updateCartBadge();
+        renderDynamicButtons(product);
+      });
+
+      addToFavBtn.addEventListener("click", () => {
+        const id = product.id;
+        const quantityInCart = getProductQuantityInCart(id);
+
         if (quantityInCart > 0) {
-          return;
-        }
-
-        const icon = addToFavBtn.querySelector('span.material-symbols-outlined');
-        const text = addToFavBtn.querySelector('span.text');
-
-        if (favorites.includes(productId)) {
-          icon.classList.add('filled', 'text-red-500');
-          text.textContent = "Quitar de Favoritos";
-        } else {
-          icon.classList.remove('filled', 'text-red-500');
-          text.textContent = "Añadir a Favoritos";
-        }
-      }
-
-      function renderDynamicButtons(product) {
-        const quantityInCart = getProductQuantityInCart(product.id);
-        const btn = document.getElementById('add-to-favorite-detail-btn');
-        const icon = btn.querySelector('span.material-symbols-outlined');
-        const text = btn.querySelector('span.text');
-
-        if (quantityInCart > 0) {
-          text.textContent = 'Eliminar del Carrito';
-          icon.textContent = 'delete_forever';
-          btn.classList.remove('bg-gray-200', 'dark:bg-gray-800', 'text-gray-900', 'dark:text-white', 'hover:bg-gray-300', 'dark:hover:bg-gray-700');
-          btn.classList.add('bg-red-600', 'text-white', 'hover:bg-red-700', 'dark:bg-red-700', 'dark:hover:bg-red-800');
-          icon.classList.remove('filled', 'text-red-500');
-        } else {
-          btn.classList.add('bg-gray-200', 'dark:bg-gray-800', 'text-gray-900', 'dark:text-white', 'hover:bg-gray-300', 'dark:hover:bg-gray-700');
-          btn.classList.remove('bg-red-600', 'text-white', 'hover:bg-red-700', 'dark:bg-red-700', 'dark:hover:bg-red-800');
-          icon.textContent = 'favorite';
-          updateFavoriteButtonState(product.id);
-        }
-      }
-
-      function setupDetailButtonListeners(product) {
-        addToCartBtn.addEventListener('click', () => {
-          const quantity = parseInt(quantityInput.value) || 1;
-          for (let i = 0; i < quantity; i++) {
-            cart.push(product);
-          }
+          removeAllOfProductFromCart(id);
           saveCart();
           updateCartBadge();
-          renderDynamicButtons(product);
-        });
-
-        addToFavBtn.addEventListener('click', () => {
-          const id = product.id;
-          const quantityInCart = getProductQuantityInCart(id);
-
-          if (quantityInCart > 0) {
-            removeAllOfProductFromCart(id);
-            saveCart();
-            updateCartBadge();
+        } else {
+          if (favorites.includes(id)) {
+            favorites = favorites.filter((favId) => favId !== id);
           } else {
-            if (favorites.includes(id)) {
-              favorites = favorites.filter((favId) => favId !== id);
-            } else {
-              favorites.push(id);
-            }
-            saveFavorites();
-            updateFavoritesBadge();
+            favorites.push(id);
           }
-          renderDynamicButtons(product);
-        });
-      }
-
-      const urlParams = new URLSearchParams(window.location.search);
-      const productId = parseInt(urlParams.get('id'));
-      const product = allProducts.find((p) => p.id === productId);
-
-      if (product) {
-        renderProductDetails(product);
-        setupDetailButtonListeners(product);
+          saveFavorites();
+          updateFavoritesBadge();
+        }
         renderDynamicButtons(product);
+      });
+    }
 
-        quantityDecreaseBtn.addEventListener('click', () =>
-          handleQuantityChange(-1)
-        );
-        quantityIncreaseBtn.addEventListener('click', () =>
-          handleQuantityChange(1)
-        );
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = parseInt(urlParams.get("id"));
+    const product = allProducts.find((p) => p.id === productId);
 
-        tabButtons.forEach((button) => {
-          button.addEventListener('click', handleTabClick);
-        });
-      } else {
-        mainContent.innerHTML = `
+    if (product) {
+      renderProductDetails(product);
+      setupDetailButtonListeners(product);
+      renderDynamicButtons(product);
+
+      quantityDecreaseBtn.addEventListener("click", () =>
+        handleQuantityChange(-1)
+      );
+      quantityIncreaseBtn.addEventListener("click", () =>
+        handleQuantityChange(1)
+      );
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", handleTabClick);
+      });
+    } else {
+      mainContent.innerHTML = `
           <div class="text-center py-24">
             <span class="material-symbols-outlined text-8xl mb-4 text-red-500">error</span>
             <h1 class="text-2xl font-bold">Producto no encontrado</h1>
@@ -504,7 +443,8 @@
             <a href="index.html" class="mt-8 inline-block h-12 px-6 rounded-lg bg-primary text-white font-bold hover:bg-primary/90 transition leading-[3rem]">Volver al Inicio</a>
           </div>
         `;
-      }
-    </script>
-  </body>
+    }
+  </script>
+</body>
+
 </html>
