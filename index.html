@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>TechEase - Productos Destacados</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0da6f2",
+              "background-light": "#f5f7f8",
+              "background-dark": "#101c22",
+            },
+            fontFamily: {
+              display: ["Space Grotesk"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+
+      /* Estilo para el ícono de favorito 'lleno' */
+      .material-symbols-outlined.filled {
+        font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+
+      /* Pequeña animación para el badge del carrito */
+      @keyframes pop {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.3);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .pop-animation {
+        animation: pop 0.3s ease-out;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200"
+  >
+    <div
+      class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden"
+    >
+      <div class="layout-container flex h-full grow flex-col">
+        <div class="flex flex-1 justify-center">
+          <div
+            class="layout-content-container flex w-full flex-col max-w-6xl px-4 sm:px-6 lg:px-8"
+          >
+            <header
+              class="flex items-center justify-between whitespace-nowrap border-b border-gray-200 dark:border-white/10 py-4"
+            >
+              <div class="flex items-center gap-8">
+                <div
+                  class="flex items-center gap-2 text-gray-900 dark:text-white"
+                >
+                  <span class="material-symbols-outlined text-primary text-2xl">
+                    hub
+                  </span>
+                  <h2 class="text-xl font-bold">TechEase</h2>
+                </div>
+                <nav class="hidden md:flex items-center gap-6">
+                  <a
+                    class="text-sm font-medium hover:text-primary text-primary"
+                    href="#"
+                    >Inicio</a
+                  >
+                  <a class="text-sm font-medium hover:text-primary" href="#"
+                    >Ofertas</a
+                  >
+                  <a class="text-sm font-medium hover:text-primary" href="#"
+                    >Novedades</a
+                  >
+                  <a class="text-sm font-medium hover:text-primary" href="#"
+                    >Soporte</a
+                  >
+                </nav>
+              </div>
+              <div class="flex flex-1 items-center justify-end gap-4">
+                <div class="hidden sm:flex items-center gap-2">
+                  <button
+                    class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
+                  >
+                    <span class="material-symbols-outlined">person</span>
+                  </button>
+                  <button
+                    id="cart-button"
+                    class="relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
+                  >
+                    <span class="material-symbols-outlined">shopping_cart</span>
+                    <span
+                      id="cart-badge"
+                      class="absolute top-1 right-1 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-primary rounded-full"
+                      style="display: none"
+                      >0</span
+                    >
+                  </button>
+                </div>
+              </div>
+            </header>
+            <main class="py-10">
+              <section class="mb-12 text-center">
+                <h1
+                  class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+                >
+                  La Tecnología que te Mueve
+                </h1>
+                <p
+                  class="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mb-8"
+                >
+                  Explora los productos más populares y las últimas novedades en
+                  tecnología.
+                </p>
+                <div class="max-w-2xl mx-auto">
+                  <label class="flex flex-col">
+                    <div
+                      class="relative flex w-full flex-1 items-stretch rounded-full h-14 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 focus-within:ring-2 focus-within:ring-primary shadow-sm"
+                    >
+                      <div
+                        class="text-gray-400 dark:text-gray-500 flex items-center justify-center pl-5 pr-2"
+                      >
+                        <span class="material-symbols-outlined">search</span>
+                      </div>
+                      <input
+                        id="search-input"
+                        class="form-input w-full flex-1 resize-none overflow-hidden rounded-full text-gray-900 dark:text-white focus:outline-0 focus:ring-0 border-none bg-transparent h-full placeholder:text-gray-400 dark:placeholder:text-gray-500 text-base font-normal"
+                        placeholder="Busca productos, marcas y más..."
+                        value=""
+                      />
+                    </div>
+                  </label>
+                </div>
+              </section>
+
+              <!-- Contenedor de Categorías -->
+              <section class="mb-12">
+                <div
+                  id="category-buttons"
+                  class="flex gap-3 overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&amp;::-webkit-scrollbar]:hidden pb-2 justify-center"
+                >
+                  <button
+                    data-category="Todos"
+                    class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-primary px-4 text-white"
+                  >
+                    <p class="text-sm font-medium">Todos</p>
+                  </button>
+                  <button
+                    data-category="Laptops"
+                    class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-white/10 px-4 hover:bg-gray-300 dark:hover:bg-white/20"
+                  >
+                    <p class="text-sm font-medium">Laptops</p>
+                  </button>
+                  <button
+                    data-category="Smartphones"
+                    class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-white/10 px-4 hover:bg-gray-300 dark:hover:bg-white/20"
+                  >
+                    <p class="text-sm font-medium">Smartphones</p>
+                  </button>
+                  <button
+                    data-category="Audio"
+                    class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-white/10 px-4 hover:bg-gray-300 dark:hover:bg-white/20"
+                  >
+                    <p class="text-sm font-medium">Audio</p>
+                  </button>
+                  <button
+                    data-category="Gaming"
+                    class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-white/10 px-4 hover:bg-gray-300 dark:hover:bg-white/20"
+                  >
+                    <p class="text-sm font-medium">Gaming</p>
+                  </button>
+                  <button
+                    data-category="Accesorios"
+                    class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-white/10 px-4 hover:bg-gray-300 dark:hover:bg-white/20"
+                  >
+                    <p class="text-sm font-medium">Accesorios</p>
+                  </button>
+                  <button
+                    data-category="Cámaras"
+                    class="flex h-10 shrink-0 cursor-pointer items-center justify-center gap-x-2 rounded-full bg-gray-200 dark:bg-white/10 px-4 hover:bg-gray-300 dark:hover:bg-white/20"
+                  >
+                    <p class="text-sm font-medium">Cámaras</p>
+                  </button>
+                </div>
+              </section>
+
+              <div class="flex items-center justify-between pb-4 pt-5">
+                <h2
+                  class="text-gray-900 dark:text-white text-2xl font-bold leading-tight tracking-tighter"
+                >
+                  Productos Destacados
+                </h2>
+                <a
+                  id="view-all-link"
+                  class="text-sm font-medium text-primary hover:underline"
+                  href="#"
+                  >Ver Todos</a
+                >
+              </div>
+
+              <!-- Grilla de Productos (se llenará dinámicamente) -->
+              <div
+                id="product-grid"
+                class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+              >
+                <!-- Los productos se insertarán aquí desde JS -->
+              </div>
+
+              <!-- Mensaje de no resultados -->
+              <div
+                id="no-results"
+                class="hidden text-center text-gray-500 dark:text-gray-400 py-16"
+              >
+                <span class="material-symbols-outlined text-6xl mb-4">
+                  sentiment_dissatisfied
+                </span>
+                <p class="text-xl font-bold">No se encontraron productos</p>
+                <p>Intenta ajustar tu búsqueda o filtros.</p>
+              </div>
+            </main>
+            <footer
+              class="mt-16 border-t border-gray-200 dark:border-white/10 pt-10 pb-8"
+            >
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                  <h3
+                    class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider"
+                  >
+                    Tienda
+                  </h3>
+                  <ul class="mt-4 space-y-2">
+                    <li>
+                      <a
+                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
+                        href="#"
+                        >Laptops</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
+                        href="#"
+                        >Smartphones</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
+                        href="#"
+                        >Gaming</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
+                        href="#"
+                        >Audio</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3
+                    class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider"
+                  >
+                    Nosotros
+                  </h3>
+                  <ul class="mt-4 space-y-2">
+                    <li>
+                      <a
+                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
+                        href="#"
+                        >Sobre Nosotros</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
+                        href="#"
+                        >Trabaja con nosotros</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
+                        href="#"
+                        >Prensa</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3
+                    class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider"
+                  >
+                    Soporte
+                  </h3>
+                  <ul class="mt-4 space-y-2">
+                    <li>
+                      <a
+                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
+                        href="#"
+                        >Contacto</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
+                        href="#"
+                        >Política de Envíos</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
+                        href="#"
+                        >Devoluciones</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
+                        href="#"
+                        >FAQ</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <h3
+                    class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider"
+                  >
+                    Legal
+                  </h3>
+                  <ul class="mt-4 space-y-2">
+                    <li>
+                      <a
+                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
+                        href="#"
+                        >Términos y Condiciones</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
+                        href="#"
+                        >Política de Privacidad</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div
+                class="mt-10 pt-8 border-t border-gray-200 dark:border-white/10 flex flex-col sm:flex-row justify-between items-center"
+              >
+                <p class="text-sm text-gray-500 dark:text-gray-400">
+                  © 2024 TechEase. Todos los derechos reservados.
+                </p>
+                <div class="flex space-x-6 mt-4 sm:mt-0"></div>
+              </div>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal del Carrito -->
+    <div
+      id="cart-modal"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
+      style="display: none"
+    >
+      <div
+        class="bg-background-light dark:bg-background-dark w-full max-w-md rounded-xl shadow-2xl m-4"
+      >
+        <div
+          class="flex items-center justify-between border-b border-gray-200 dark:border-white/10 p-4"
+        >
+          <h3 class="text-lg font-bold text-gray-900 dark:text-white">
+            Tu Carrito
+          </h3>
+          <button
+            id="close-cart-modal"
+            class="text-gray-500 hover:text-primary"
+          >
+            <span class="material-symbols-outlined">close</span>
+          </button>
+        </div>
+        <div id="cart-modal-body" class="p-6 max-h-[60vh] overflow-y-auto">
+          <!-- Items del carrito se insertarán aquí -->
+          <!-- Contenido de ejemplo si está vacío -->
+          <!-- <p class="text-center text-gray-500 dark:text-gray-400">Tu carrito está vacío.</p> -->
+        </div>
+        <div
+          class="border-t border-gray-200 dark:border-white/10 p-4 bg-gray-50 dark:bg-white/5 rounded-b-xl"
+        >
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-lg font-medium text-gray-800 dark:text-gray-200"
+              >Total:</span
+            >
+            <span
+              id="cart-total"
+              class="text-xl font-bold text-gray-900 dark:text-white"
+              >S/ 0.00</span
+            >
+          </div>
+          <button
+            class="w-full h-12 rounded-lg bg-primary text-white font-bold hover:bg-primary/90 transition"
+          >
+            Ir a Pagar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Plantilla de Script -->
+    <script type="module">
+      // --- DATABASE ---
+      // En una aplicación real, esto vendría de una API.
+      // Extraemos los datos estáticos del HTML para hacerlos dinámicos.
+      const allProducts = [
+        {
+          id: 1,
+          name: "UltraBook X",
+          category: "Laptops",
+          price: 1299.99,
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC-GCrO0eAMFnZYK2n1OCaBZGsrKjL18qzzZdzhuGZAlb1OVWPZyOIZrjAC16r8mfZhBHNHL4qCiNzU6rhFnyPvYw4ENrInFZl63AyR2WMDsSjf0dtimTCN_nVTtk_2cxHaHaZpPYNqkughrRxXtK6khFs-dH-HmeCPtB3asf6alk_q1xbWa94I82siKhKjQBFBMcWzrZDHvkFwdskgr_4JiuX5sQYECwzVNCIZdIoYEGSVbRkFeqIMlEquxXP8qhyMlWswJ2ULvtv8",
+          alt: "A sleek, modern silver laptop on a dark background.",
+        },
+        {
+          id: 2,
+          name: "Galaxy Phone 20",
+          category: "Smartphones",
+          price: 999.99,
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDxOHkkyY18pEhp35el22oEO_RPoBCbsNU7c_QrgZgWxq12i6BjRBGo9SrrdL9pHThmUtr_rLvkXoB2z0kCYQ-ZjSo69r5kpqt-B2lWGEtTum_0x3tHYQCpXu2zZiNzgeN_WGAINS00Rm0scE3oAIZmfBBMwK95e6C7IDAh_ISQSxlVqWNNVnGjcp0OYTrrdZTsjWgze_7ycxhFJfGogDCE_GK64Cevor-GCbR4QcQr7PUjyUm2WN3HiAo8GxSKudiXz8oWfZweLp--",
+          alt: "A modern smartphone with a triple camera system.",
+        },
+        {
+          id: 3,
+          name: "NoiseFree Headphones",
+          category: "Audio",
+          price: 249.99,
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuAU6aaYzMDyjPIZpoSIgnpFeuY8XHnJzKL-wkImfET8jRQM-0sd_iB1ymf_qEOOrdOdQ28v0rSL-PFQIXyPO-br3DAHYH_-RSJU2W5Kjp4_cE0nTkjWnbVEPjN7DfNhWNtrv48t35HgsLx5lLTQDbQmetH6OA7w6bkc81IE4Mt_cEVXTxp7jr0JVh_2_Dc9GjaS192cRUXpRPgpgOookCZvaaUHgb6vIQjptoV4tidBzG7kD3riN_4pCpSacvg182T9-3L18O3oh3f9",
+          alt: "A pair of black over-ear headphones on a plain background.",
+        },
+        {
+          id: 4,
+          name: "VR Vision Headset",
+          category: "Gaming",
+          price: 599.0,
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCd9q_6ZVdLeDUHP_GrOUQybEDX1nFxtoihmZxr1NEYFJG7nQWUxe_ij__yMGNwz58RE41AARe8ppSIYnGleJflmlEbaKkOyAbgDcz0JfPdJrXPcaaIcW04VKd66S7XU3Deq_ck97ZX_VoG-YS1iPJktKNk3xLSa6YLB5TW9x78tXGXCFrFD5AgY3VX9xRXu8X4sW7mXGltpiPODu2YY38X8744P2mZDTJE_UdP6lwTZwYgYkCPQnyYkFEtN5DRaDMoq6g99BWU2dOA",
+          alt: "A virtual reality headset against a futuristic background.",
+        },
+        {
+          id: 5,
+          name: "Chrono Watch S2",
+          category: "Accesorios",
+          price: 399.0,
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuCje0QLDBraiS2Wih9rymCLfG4nQUssKXA8w3ikeb0l12yaxoZfZcrI4ColO9VoGCld4dyE1dKulgipnk7jsKRH9P8dzGQU2oWi3STzWH9eZ2mEzRS3D08uSkuSM4MJMVpzeSrqA6tJV96M3-pfIzuPT3ikLfv6cPyELu0fGjV2NNoBDn0FgCZSFTWvL5OWZLH-VK6KhFTE2YO6vpvX_56hUFIeOSF4M-5b6wsJqCytuJ4NrvTaRVMJRve-N3TFCeGHrWj2227IZ89t",
+          alt: "A modern smartwatch with a circular screen showing a watch face.",
+        },
+        {
+          id: 6,
+          name: "SkyCam Drone 4K",
+          category: "Cámaras",
+          price: 899.0,
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuC_N1MNsTCdm3sQfwsEEikaKH7f3uuTyRWbwZbiIueCYrAhW0uuC-JkZmn0WYwZwlUmSKKi6IkG_eS0hnRfjPGjhg_BO0MRrPMZ4lhrsq5ylmR_WNavlPngdein-wFUPQEGnZDzrSfhdTzwNWMeTwJ1q7zEIHCwe2QXbjaICznfaD2wYAjKsx4TJjL7ddNErf_fvR19ej443lP8lxJ0crEXtT1Hn9SPH6Tb7dkB_m6suOxE9B80DGFv2WpOuZoChscVF_PLCHOOLEau",
+          alt: "A professional drone with a camera hovering in the air.",
+        },
+        {
+          id: 7,
+          name: "Air Buds Pro",
+          category: "Audio",
+          price: 199.99,
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBl_nfA4_wKQnkkeBCZfcElpaImi1bHWQpvfOaK5_3BYSms3dubyYZ4QTpVCQhWy9s1SI4f-jUA6CeQd72casu9AGI-tPXmSsRrt85h-DsaRDjJ4N1OOYkGbwQTKb0ZBl1AJUfkThcetK_36VHsCIGOBtakEZMFGolphoHVCBZSivCxU2wUtmLB9qOtr6_j_guPNZRCyDQNCMuYUukP4xf-AcQB8XymxiVbkfLsWDtTgsQewXLxStfAew_YyXbmskqBDmbPIAyznjUu",
+          alt: "A pair of small, stylish earbuds in their charging case.",
+        },
+        {
+          id: 8,
+          name: "Gamer Pro Mouse",
+          category: "Gaming",
+          price: 79.99,
+          img: "https://lh3.googleusercontent.com/aida-public/AB6AXuDP3GK27SsFumbtB9sPv8Dxi3-JYnfjfcjHXIeSGFcr4ssIeG81YYCz7dBUl_8m0vA6ZdW1vscJQAVW1wPWfmIwOX4raTtWG_bgsl-T5UeOI8N3EHkTq1dTOpaOIGyh6uxh0sHo8fOF8ULyw3GKtDPgwf9FYlWj9I7sOM4mAP9N3YE2KqmanFHJV-HLN6zLTwxnfMhqtKF4bHelf1lp3k0YntpR4Zgvk5OZfHe0hdPfTOnfyFRA5S9L51_6xFbliq0erfvXfzd6hQeh",
+          alt: "An ergonomic gaming mouse with RGB lighting.",
+        },
+      ];
+
+      // --- STATE ---
+      // Estado de la aplicación
+      let cart = []; // Almacena los productos en el carrito
+      let favorites = []; // Almacena los IDs de productos favoritos
+      let currentCategory = "Todos"; // Categoría seleccionada
+      let currentSearchTerm = ""; // Término de búsqueda actual
+
+      // --- DOM SELECTORS ---
+      // Guardamos referencias a los elementos del DOM que usaremos
+      const productGrid = document.getElementById("product-grid");
+      const categoryButtonsContainer =
+        document.getElementById("category-buttons");
+      const searchInput = document.getElementById("search-input");
+      const noResultsMessage = document.getElementById("no-results");
+      const cartButton = document.getElementById("cart-button");
+      const cartBadge = document.getElementById("cart-badge");
+      const cartModal = document.getElementById("cart-modal");
+      const closeCartModalButton = document.getElementById("close-cart-modal");
+      const cartModalBody = document.getElementById("cart-modal-body");
+      const cartTotalElement = document.getElementById("cart-total");
+
+      // --- RENDER FUNCTIONS ---
+
+      /**
+       * Renderiza la grilla de productos basada en una lista de productos.
+       * @param {Array} products - La lista de productos a renderizar.
+       */
+      function renderProducts(products) {
+        productGrid.innerHTML = ""; // Limpia la grilla actual
+
+        if (products.length === 0) {
+          noResultsMessage.style.display = "block";
+          productGrid.style.display = "none";
+        } else {
+          noResultsMessage.style.display = "none";
+          productGrid.style.display = "grid";
+
+          products.forEach((product) => {
+            const isFavorite = favorites.includes(product.id);
+            const productCard = `
+            <div class="flex flex-col gap-3 group">
+              <div class="relative w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-gray-200 dark:bg-white/5 overflow-hidden">
+                <img alt="${
+                  product.alt
+                }" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="${
+              product.img
+            }" />
+                <button data-product-id="${
+                  product.id
+                }" class="favorite-btn absolute top-3 right-3 flex items-center justify-center h-8 w-8 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur-sm text-gray-800 dark:text-white hover:bg-white dark:hover:bg-black transition">
+                  <span class="material-symbols-outlined text-lg ${
+                    isFavorite ? "filled text-red-500" : ""
+                  }">favorite</span>
+                </button>
+              </div>
+              <div>
+                <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">${
+                  product.category
+                }</p>
+                <p class="text-gray-900 dark:text-white text-base font-medium leading-normal">${
+                  product.name
+                }</p>
+                <p class="text-gray-800 dark:text-gray-200 text-base font-bold leading-normal mt-1">S/ ${product.price.toFixed(
+                  2
+                )}</p>
+                <button data-product-id="${
+                  product.id
+                }" class="add-to-cart-btn mt-3 w-full h-10 rounded-lg bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary font-bold hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition border border-primary/20">
+                  Añadir al Carrito
+                </button>
+              </div>
+            </div>
+          `;
+            productGrid.insertAdjacentHTML("beforeend", productCard);
+          });
+        }
+      }
+
+      /**
+       * Renderiza el contenido del modal del carrito.
+       */
+      function renderCartModal() {
+        cartModalBody.innerHTML = "";
+        let total = 0;
+
+        if (cart.length === 0) {
+          cartModalBody.innerHTML =
+            '<p class="text-center text-gray-500 dark:text-gray-400">Tu carrito está vacío.</p>';
+        } else {
+          // Usamos un objeto para agrupar productos y contar cantidades
+          const cartItems = cart.reduce((acc, product) => {
+            acc[product.id] = acc[product.id] || { ...product, quantity: 0 };
+            acc[product.id].quantity += 1;
+            return acc;
+          }, {});
+
+          Object.values(cartItems).forEach((item) => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            const cartItemHTML = `
+            <div class="flex items-center gap-4 mb-4">
+              <img src="${item.img}" alt="${
+              item.alt
+            }" class="w-16 h-16 object-cover rounded-lg">
+              <div class="flex-1">
+                <p class="font-medium text-gray-900 dark:text-white">${
+                  item.name
+                }</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">S/ ${item.price.toFixed(
+                  2
+                )} x ${item.quantity}</p>
+              </div>
+              <div class="text-right">
+                 <p class="font-bold text-gray-900 dark:text-white">S/ ${itemTotal.toFixed(
+                   2
+                 )}</p>
+                 <button data-product-id="${
+                   item.id
+                 }" class="remove-from-cart-btn text-sm text-red-500 hover:underline">Quitar</button>
+              </div>
+            </div>
+          `;
+            cartModalBody.insertAdjacentHTML("beforeend", cartItemHTML);
+          });
+        }
+        cartTotalElement.textContent = `S/ ${total.toFixed(2)}`;
+      }
+
+      // --- EVENT HANDLERS & LOGIC ---
+
+      /**
+       * Filtra y renderiza los productos basados en el estado actual (categoría y búsqueda).
+       */
+      function filterAndRender() {
+        let filteredProducts = allProducts;
+
+        // 1. Filtrar por categoría
+        if (currentCategory !== "Todos") {
+          filteredProducts = filteredProducts.filter(
+            (product) => product.category === currentCategory
+          );
+        }
+
+        // 2. Filtrar por término de búsqueda
+        if (currentSearchTerm) {
+          const lowerCaseTerm = currentSearchTerm.toLowerCase();
+          filteredProducts = filteredProducts.filter(
+            (product) =>
+              product.name.toLowerCase().includes(lowerCaseTerm) ||
+              product.category.toLowerCase().includes(lowerCaseTerm)
+          );
+        }
+
+        renderProducts(filteredProducts);
+      }
+
+      /**
+       * Actualiza el badge del carrito.
+       */
+      function updateCartBadge() {
+        if (cart.length === 0) {
+          cartBadge.style.display = "none";
+        } else {
+          cartBadge.style.display = "flex";
+          cartBadge.textContent = cart.length;
+          // Añadir animación
+          cartBadge.classList.add("pop-animation");
+          cartBadge.onanimationend = () =>
+            cartBadge.classList.remove("pop-animation");
+        }
+      }
+
+      /**
+       * Maneja el clic en los botones de categoría.
+       */
+      function handleCategoryClick(event) {
+        const button = event.target.closest("button");
+        if (!button) return;
+
+        const category = button.dataset.category;
+        if (!category) return;
+
+        currentCategory = category;
+
+        // Actualizar estilos de los botones
+        categoryButtonsContainer.querySelectorAll("button").forEach((btn) => {
+          if (btn.dataset.category === currentCategory) {
+            btn.classList.add("bg-primary", "text-white");
+            btn.classList.remove(
+              "bg-gray-200",
+              "dark:bg-white/10",
+              "hover:bg-gray-300",
+              "dark:hover:bg-white/20"
+            );
+          } else {
+            btn.classList.remove("bg-primary", "text-white");
+            btn.classList.add(
+              "bg-gray-200",
+              "dark:bg-white/10",
+              "hover:bg-gray-300",
+              "dark:hover:bg-white/20"
+            );
+          }
+        });
+
+        filterAndRender();
+      }
+
+      /**
+       * Maneja la entrada en el campo de búsqueda.
+       */
+      function handleSearchInput(event) {
+        currentSearchTerm = event.target.value;
+        filterAndRender();
+      }
+
+      /**
+       * Maneja los clics dentro de la grilla de productos (Favoritos, Añadir al carrito).
+       */
+      function handleProductGridClick(event) {
+        const button = event.target.closest("button");
+        if (!button) return;
+
+        const productId = button.dataset.productId;
+        if (!productId) return;
+
+        // --- Lógica de Favoritos ---
+        if (button.classList.contains("favorite-btn")) {
+          const icon = button.querySelector("span");
+          const id = parseInt(productId);
+
+          if (favorites.includes(id)) {
+            // Quitar de favoritos
+            favorites = favorites.filter((favId) => favId !== id);
+            icon.classList.remove("filled", "text-red-500");
+          } else {
+            // Añadir a favoritos
+            favorites.push(id);
+            icon.classList.add("filled", "text-red-500");
+          }
+          // Opcional: podrías guardar 'favorites' en localStorage
+        }
+
+        // --- Lógica de Añadir al Carrito ---
+        if (button.classList.contains("add-to-cart-btn")) {
+          const product = allProducts.find((p) => p.id === parseInt(productId));
+          if (product) {
+            cart.push(product);
+            updateCartBadge();
+            // Opcional: mostrar una notificación "toast"
+          }
+        }
+      }
+
+      /**
+       * Maneja los clics dentro del modal del carrito (Quitar item).
+       */
+      function handleCartModalClick(event) {
+        const button = event.target.closest("button");
+        if (!button || !button.classList.contains("remove-from-cart-btn"))
+          return;
+
+        const productId = parseInt(button.dataset.productId);
+
+        // Encuentra el primer índice de este producto y lo elimina
+        // Para un sistema de cantidades, la lógica sería diferente (ej. cart[id].quantity--)
+        const productIndex = cart.findIndex((p) => p.id === productId);
+        if (productIndex > -1) {
+          cart.splice(productIndex, 1);
+        }
+
+        renderCartModal();
+        updateCartBadge();
+      }
+
+      /**
+       * Abre el modal del carrito.
+       */
+      function openCartModal() {
+        renderCartModal();
+        cartModal.style.display = "flex";
+        document.body.style.overflow = "hidden"; // Evita scroll de fondo
+      }
+
+      /**
+       * Cierra el modal del carrito.
+       */
+      function closeCartModal() {
+        cartModal.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+
+      // --- INITIALIZATION ---
+      // Se ejecuta cuando el DOM está listo
+      document.addEventListener("DOMContentLoaded", () => {
+        // Renderizado inicial
+        renderProducts(allProducts);
+
+        // Asignación de Event Listeners
+        categoryButtonsContainer.addEventListener("click", handleCategoryClick);
+        searchInput.addEventListener("input", handleSearchInput);
+        productGrid.addEventListener("click", handleProductGridClick);
+
+        // Listeners del Modal
+        cartButton.addEventListener("click", openCartModal);
+        closeCartModalButton.addEventListener("click", closeCartModal);
+
+        // Listener para el enlace "Ver Todos"
+        const viewAllLink = document.getElementById("view-all-link");
+        viewAllLink.addEventListener("click", (event) => {
+          event.preventDefault(); // Evita que el enlace navegue
+          // Busca el botón "Todos" y simula un clic en él
+          const allButton = categoryButtonsContainer.querySelector(
+            'button[data-category="Todos"]'
+          );
+          if (allButton) {
+            allButton.click();
+          }
+        });
+
+        cartModal.addEventListener("click", (event) => {
+          // Cierra el modal si se hace clic en el fondo oscuro
+          if (event.target === cartModal) {
+            closeCartModal();
+          }
+        });
+        cartModalBody.addEventListener("click", handleCartModalClick);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>TechEase - Productos</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#0da6f2",
+              "background-light": "#f5f7f8",
+              "background-dark": "#101c22",
+              "card-light": "#ffffff",
+              "card-dark": "#1a2831",
+            },
+            fontFamily: {
+              display: ["Space Grotesk", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background-light dark:bg-background-dark font-display text-gray-800 dark:text-gray-200"
+  >
+    <div class="relative flex h-auto min-h-screen w-full flex-col">
+      <header
+        class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-gray-200 dark:border-gray-800 bg-background-light/80 dark:bg-background-dark/80 px-4 sm:px-6 lg:px-8 py-3 backdrop-blur-sm"
+      >
+        <div class="flex items-center gap-8">
+          <div class="flex items-center gap-2 text-gray-900 dark:text-white">
+            <span class="material-symbols-outlined text-primary text-3xl"
+              >hub</span
+            >
+            <h2 class="text-xl font-bold">TechEase</h2>
+          </div>
+          <nav class="hidden md:flex items-center gap-6">
+            <a class="text-sm font-medium text-primary" href="#">Laptops</a>
+            <a
+              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+              href="#"
+              >Smartphones</a
+            >
+            <a
+              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+              href="#"
+              >Accesorios</a
+            >
+            <a
+              class="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
+              href="#"
+              >Ofertas</a
+            >
+          </nav>
+        </div>
+        <div class="flex flex-1 justify-end items-center gap-4">
+          <label
+            class="relative hidden sm:flex flex-col min-w-40 max-w-xs w-full"
+          >
+            <div class="flex w-full items-stretch h-10">
+              <span
+                class="material-symbols-outlined flex items-center justify-center pl-3 pr-2 text-gray-400 dark:text-gray-500"
+                >search</span
+              >
+              <input
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-gray-800 dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 focus:border-primary h-full placeholder:text-gray-400 dark:placeholder:text-gray-500 pl-0 text-sm"
+                placeholder="Buscar productos..."
+                value=""
+              />
+            </div>
+          </label>
+          <div class="flex gap-2">
+            <button
+              class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors"
+            >
+              <span class="material-symbols-outlined text-xl">person</span>
+            </button>
+            <button
+              class="relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-primary/10 hover:text-primary transition-colors"
+            >
+              <span class="material-symbols-outlined text-xl"
+                >shopping_cart</span
+              >
+              <span
+                class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-white text-xs font-bold"
+                >3</span
+              >
+            </button>
+          </div>
+        </div>
+      </header>
+      <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <aside class="w-full lg:w-1/4 xl:w-1/5 shrink-0">
+            <div class="sticky top-24 space-y-6">
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white">
+                Filtros
+              </h3>
+              <div class="space-y-3">
+                <h4 class="font-semibold">Categoría</h4>
+                <ul class="space-y-2 text-sm">
+                  <li>
+                    <a class="text-primary font-medium" href="#">Laptops</a>
+                  </li>
+                  <li>
+                    <a
+                      class="text-gray-600 dark:text-gray-300 hover:text-primary"
+                      href="#"
+                      >Smartphones</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-gray-600 dark:text-gray-300 hover:text-primary"
+                      href="#"
+                      >Accesorios</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-gray-600 dark:text-gray-300 hover:text-primary"
+                      href="#"
+                      >Componentes</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-gray-600 dark:text-gray-300 hover:text-primary"
+                      href="#"
+                      >Monitores</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      class="text-gray-600 dark:text-gray-300 hover:text-primary"
+                      href="#"
+                      >Gaming</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="space-y-3">
+                <h4 class="font-semibold">Marca</h4>
+                <div class="space-y-2">
+                  <label class="flex items-center gap-2 text-sm"
+                    ><input
+                      class="form-checkbox rounded text-primary focus:ring-primary/50"
+                      type="checkbox"
+                    />
+                    Apple</label
+                  >
+                  <label class="flex items-center gap-2 text-sm"
+                    ><input
+                      class="form-checkbox rounded text-primary focus:ring-primary/50"
+                      type="checkbox"
+                    />
+                    Dell</label
+                  >
+                  <label class="flex items-center gap-2 text-sm"
+                    ><input
+                      checked=""
+                      class="form-checkbox rounded text-primary focus:ring-primary/50"
+                      type="checkbox"
+                    />
+                    HP</label
+                  >
+                  <label class="flex items-center gap-2 text-sm"
+                    ><input
+                      class="form-checkbox rounded text-primary focus:ring-primary/50"
+                      type="checkbox"
+                    />
+                    Lenovo</label
+                  >
+                  <label class="flex items-center gap-2 text-sm"
+                    ><input
+                      class="form-checkbox rounded text-primary focus:ring-primary/50"
+                      type="checkbox"
+                    />
+                    Samsung</label
+                  >
+                </div>
+              </div>
+              <div class="space-y-3">
+                <h4 class="font-semibold">Precio</h4>
+                <input
+                  class="w-full h-2 bg-gray-200 dark:bg-gray-700 rounded-lg appearance-none cursor-pointer"
+                  type="range"
+                />
+                <div class="flex justify-between text-sm text-gray-500">
+                  <span>S/ 500</span>
+                  <span>S/ 3000+</span>
+                </div>
+              </div>
+              <div class="space-y-3">
+                <h4 class="font-semibold">Valoración</h4>
+                <div class="space-y-2">
+                  <label class="flex items-center gap-2 text-sm"
+                    ><input
+                      class="form-radio rounded-full text-primary focus:ring-primary/50"
+                      name="rating"
+                      type="radio"
+                    />
+                    ★★★★★</label
+                  >
+                  <label class="flex items-center gap-2 text-sm"
+                    ><input
+                      class="form-radio rounded-full text-primary focus:ring-primary/50"
+                      name="rating"
+                      type="radio"
+                    />
+                    ★★★★☆ y más</label
+                  >
+                  <label class="flex items-center gap-2 text-sm"
+                    ><input
+                      class="form-radio rounded-full text-primary focus:ring-primary/50"
+                      name="rating"
+                      type="radio"
+                    />
+                    ★★★☆☆ y más</label
+                  >
+                </div>
+              </div>
+              <div class="flex flex-col gap-2 pt-4">
+                <button
+                  class="w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-primary text-white gap-2 text-sm font-bold tracking-wide"
+                >
+                  Aplicar Filtros
+                </button>
+                <button
+                  class="w-full flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-transparent dark:bg-transparent border border-gray-300 dark:border-gray-700 text-gray-600 dark:text-gray-300 gap-2 text-sm font-bold tracking-wide"
+                >
+                  Limpiar
+                </button>
+              </div>
+            </div>
+          </aside>
+          <div class="w-full lg:w-3/4 xl:w-4/5">
+            <div class="flex flex-wrap gap-2 mb-4">
+              <a
+                class="text-gray-500 dark:text-gray-400 text-sm font-medium hover:text-primary"
+                href="#"
+                >Inicio</a
+              >
+              <span class="text-gray-500 dark:text-gray-400 text-sm font-medium"
+                >/</span
+              >
+              <span class="text-gray-800 dark:text-white text-sm font-medium"
+                >Laptops</span
+              >
+            </div>
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+              <h1
+                class="text-gray-900 dark:text-white text-3xl md:text-4xl font-black tracking-tight"
+              >
+                Laptops
+              </h1>
+              <div class="relative">
+                <select
+                  class="form-select appearance-none block w-full pl-3 pr-10 py-2 text-base border-gray-300 dark:border-gray-700 bg-background-light dark:bg-background-dark focus:outline-none focus:ring-primary focus:border-primary sm:text-sm rounded-lg"
+                >
+                  <option>Recomendados</option>
+                  <option>Precio: Menor a Mayor</option>
+                  <option>Precio: Mayor a Menor</option>
+                  <option>Más Nuevos</option>
+                  <option>Mejor Valorados</option>
+                </select>
+                <div
+                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 dark:text-gray-300"
+                >
+                  <span class="material-symbols-outlined text-xl"
+                    >expand_more</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="flex gap-2 mb-6 overflow-x-auto pb-2">
+              <button
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full bg-gray-100 dark:bg-gray-800 px-4"
+              >
+                <p class="text-gray-800 dark:text-white text-sm font-medium">
+                  HP
+                </p>
+                <span class="material-symbols-outlined text-base">close</span>
+              </button>
+              <button
+                class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-full border border-dashed border-gray-400 dark:border-gray-600 px-4 text-gray-500 dark:text-gray-400 hover:border-primary hover:text-primary"
+              >
+                <p class="text-sm font-medium">Añadir Filtro</p>
+                <span class="material-symbols-outlined text-base">add</span>
+              </button>
+            </div>
+            <div
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6"
+            >
+              <div
+                class="group flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-4 border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/10"
+              >
+                <div
+                  class="relative w-full aspect-square overflow-hidden rounded-lg"
+                >
+                  <img
+                    alt="Laptop Gamer Avanzada con teclado retroiluminado RGB"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvfhmi6N6ovXfWxsOu8PcTI8ooM3tEnpjNEbn58-OfHToKbPdPUQmSQLZOTfRW8697UYmTcDi1lPlpi7nyAr7a6kVCDF8_zybPegaT3sulC-svrGDEbFMMoXxSqqgOW1sQK_LHP9Sy5IBt1waYtHXBk42gCKmKwffBkm6nzm-xfdvVKn92YQAhHkDpRU45NRaWBVHvISku2z2q6lamh03IS3zdyp1ni3YY2ftWNpLS0PhcZ7ajWdSlCyuJk3hk88vh8A3nEOPaaRmI"
+                  />
+                  <button
+                    class="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 dark:bg-black/50 text-gray-700 dark:text-gray-200 backdrop-blur-sm hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <span class="material-symbols-outlined text-xl"
+                      >favorite_border</span
+                    >
+                  </button>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <p class="text-gray-500 dark:text-gray-400 text-sm">HP</p>
+                  <p
+                    class="text-gray-900 dark:text-white text-base font-bold leading-normal truncate"
+                  >
+                    Laptop Gamer Avanzada
+                  </p>
+                  <div class="flex items-center gap-1">
+                    <span class="text-yellow-400">★★★★☆</span>
+                    <span
+                      class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+                      >(120)</span
+                    >
+                  </div>
+                  <div class="flex items-baseline justify-between mt-2">
+                    <p class="text-primary text-lg font-bold leading-normal">
+                      S/ 1,499.00
+                    </p>
+                    <button
+                      class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >add_shopping_cart</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-4 border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/10"
+              >
+                <div
+                  class="relative w-full aspect-square overflow-hidden rounded-lg"
+                >
+                  <img
+                    alt="Ultrabook Pro X plateado y delgado sobre un escritorio"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBq8xljBnXYG6o0fa0yTUpn_aK4LXBizRyLLplrmxfRCU1_U-CrGnXjXHXDM-yePvf5om-LPsu1sBQ1Ihgsra43toD9xVyAuPnML9VVy_JySeZt9bE7CsGXkjlhj-n3zC8PRLRwPIBWyMUVLNRwlVQ5OLEPN2Om8gkW95EeRCZv0qtNfjiihf9b9bgovOiH6BnI8ZQ8Hkqa1vZgLQkdvG2mQMvai6JbFrg9X34o_ZDB3JV7efOiUuwnGePW8NTog91GVYYb9SxKqS-3"
+                  />
+                  <button
+                    class="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 dark:bg-black/50 text-gray-700 dark:text-gray-200 backdrop-blur-sm hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <span class="material-symbols-outlined text-xl"
+                      >favorite</span
+                    >
+                  </button>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <p class="text-gray-500 dark:text-gray-400 text-sm">Apple</p>
+                  <p
+                    class="text-gray-900 dark:text-white text-base font-bold leading-normal truncate"
+                  >
+                    Ultrabook Pro X
+                  </p>
+                  <div class="flex items-center gap-1">
+                    <span class="text-yellow-400">★★★★★</span>
+                    <span
+                      class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+                      >(98)</span
+                    >
+                  </div>
+                  <div class="flex items-baseline justify-between mt-2">
+                    <p class="text-primary text-lg font-bold leading-normal">
+                      S/ 1,299.00
+                    </p>
+                    <button
+                      class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >add_shopping_cart</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-4 border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/10"
+              >
+                <div
+                  class="relative w-full aspect-square overflow-hidden rounded-lg"
+                >
+                  <img
+                    alt="Portátil Esencial de color negro sobre una superficie blanca"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzskDmoFngjqlci8_N3P_ehSL6yysb8ABGHX4lKrwHBw7Rv8Ac60VrpPPAjJ2wfdjB-t_1Lkq14-2XQTYSXJuhF8e_VQJjNKdfvVMfftAwjYPfXFySgLanSjXAfLRPqj9h5heivJKlj0ujdjTP_AyBbG6_a9BOy9XBdA-gsjpvnRq85mGk3d19JaXzCb38DNXfMf_BANW-rJHYJVsZmhMZvI-QC4A9n4S08LZXksJgd-nONHYeGnfjzU8hQB2gTj_TmHE48tjvHIaW"
+                  />
+                  <button
+                    class="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 dark:bg-black/50 text-gray-700 dark:text-gray-200 backdrop-blur-sm hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <span class="material-symbols-outlined text-xl"
+                      >favorite_border</span
+                    >
+                  </button>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <p class="text-gray-500 dark:text-gray-400 text-sm">Lenovo</p>
+                  <p
+                    class="text-gray-900 dark:text-white text-base font-bold leading-normal truncate"
+                  >
+                    Portátil Esencial
+                  </p>
+                  <div class="flex items-center gap-1">
+                    <span class="text-yellow-400">★★★★☆</span>
+                    <span
+                      class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+                      >(250)</span
+                    >
+                  </div>
+                  <div class="flex items-baseline justify-between mt-2">
+                    <p class="text-primary text-lg font-bold leading-normal">
+                      S/ 599.00
+                    </p>
+                    <button
+                      class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >add_shopping_cart</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-4 border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/10"
+              >
+                <div
+                  class="relative w-full aspect-square overflow-hidden rounded-lg"
+                >
+                  <img
+                    alt="Estación de Trabajo Móvil mostrando software de diseño"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLKbUte8xfpr3UH5ztHzFFodzRgAUkt-lgFXwhGunXSuaJ46uXZEHgauC31maRqWNpeN-zNnO0ffzysvJkaxWxA32vtGW6VF08CPuCNfkjKr6Z1xEKXfqqOhJzTbGmZeBbqv6VWGOeRZ8yfHW2MOg_Q15gb64KeFZ6WyRi-4sFdcJNZsCzsSmy_d3D4txwi2ev_Cf7DZLYJYWsce1E8PbfsktFi0MwWPHWG01j3p-jUDzsjDzwU4sUuxMMq9meO2dkvAMEl-Cd96Og"
+                  />
+                  <button
+                    class="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 dark:bg-black/50 text-gray-700 dark:text-gray-200 backdrop-blur-sm hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <span class="material-symbols-outlined text-xl"
+                      >favorite_border</span
+                    >
+                  </button>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <p class="text-gray-500 dark:text-gray-400 text-sm">Dell</p>
+                  <p
+                    class="text-gray-900 dark:text-white text-base font-bold leading-normal truncate"
+                  >
+                    Estación de Trabajo Móvil
+                  </p>
+                  <div class="flex items-center gap-1">
+                    <span class="text-yellow-400">★★★★☆</span>
+                    <span
+                      class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+                      >(45)</span
+                    >
+                  </div>
+                  <div class="flex items-baseline justify-between mt-2">
+                    <p class="text-primary text-lg font-bold leading-normal">
+                      S/ 2,100.00
+                    </p>
+                    <button
+                      class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >add_shopping_cart</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-4 border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/10"
+              >
+                <div
+                  class="relative w-full aspect-square overflow-hidden rounded-lg"
+                >
+                  <img
+                    alt="Laptop Convertible 2-en-1 en modo tablet"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbGqFSnDs43uqDatwsoKayu54ls7VWVlCTrKh_q27k4GvGA4KJy5slgT-jmtu0gGgmHC3V86Kl7KdoSuicUH2bjTMRgcG96shLy0Rr3YLuWEZJgVyx8cZC83S4cDe0AVz9RRPY34XkQiqlEek8s-iP5Uf4gcWQ8gEuN005iNoNK2yBKTXh2aR-5No1R5Jh4YkXqQUYh5FhRT1y_mFBqo_NDbjVriioyWMzO22a5VmWXCN4GN5GCgNoF46u14OfXEZkML_J2eXmstSK"
+                  />
+                  <button
+                    class="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 dark:bg-black/50 text-gray-700 dark:text-gray-200 backdrop-blur-sm hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <span class="material-symbols-outlined text-xl"
+                      >favorite_border</span
+                    >
+                  </button>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <p class="text-gray-500 dark:text-gray-400 text-sm">HP</p>
+                  <p
+                    class="text-gray-900 dark:text-white text-base font-bold leading-normal truncate"
+                  >
+                    Laptop Convertible 2-en-1
+                  </p>
+                  <div class="flex items-center gap-1">
+                    <span class="text-yellow-400">★★★★★</span>
+                    <span
+                      class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+                      >(112)</span
+                    >
+                  </div>
+                  <div class="flex items-baseline justify-between mt-2">
+                    <p class="text-primary text-lg font-bold leading-normal">
+                      S/ 950.00
+                    </p>
+                    <button
+                      class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >add_shopping_cart</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-4 border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/10"
+              >
+                <div
+                  class="relative w-full aspect-square overflow-hidden rounded-lg"
+                >
+                  <img
+                    alt="Notebook de Estudio ligero con libros al lado"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYP26M9kFH4LjuNrtJwg3tRIXAIudDgveSxsrs_fxJ_0IRAvbaVHNWXjBRfSW0YsDdvIhldVz3_XY18M_xjK26pBgbVmJHK0US7_GYg0dL1ceyZ7zqhHZVDycbJGOrdDCP0bQdfgeVw7BcpbOBZRsB3iLbWEALQ9KNqd27MiV9sSXA1pXiEQ4b9GIeDU-Udc4WYd6yOAMsoojBx5TAgzDnPK5hhlEhyN1Yxdd8r_vjBocCYbaUhKmK4A6q4c-ehuVMsrGokVTTIWTo"
+                  />
+                  <button
+                    class="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 dark:bg-black/50 text-gray-700 dark:text-gray-200 backdrop-blur-sm hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <span class="material-symbols-outlined text-xl"
+                      >favorite_border</span
+                    >
+                  </button>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <p class="text-gray-500 dark:text-gray-400 text-sm">
+                    Samsung
+                  </p>
+                  <p
+                    class="text-gray-900 dark:text-white text-base font-bold leading-normal truncate"
+                  >
+                    Notebook de Estudio
+                  </p>
+                  <div class="flex items-center gap-1">
+                    <span class="text-yellow-400">★★★★☆</span>
+                    <span
+                      class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+                      >(310)</span
+                    >
+                  </div>
+                  <div class="flex items-baseline justify-between mt-2">
+                    <p class="text-primary text-lg font-bold leading-normal">
+                      S/ 450.00
+                    </p>
+                    <button
+                      class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >add_shopping_cart</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-4 border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/10"
+              >
+                <div
+                  class="relative w-full aspect-square overflow-hidden rounded-lg"
+                >
+                  <img
+                    alt="Chromebook sencillo y rápido en un ambiente minimalista"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxoOSn80B4pzuQPFnC2vzekVuJcla1JPl8OSkNHArCycD-j2lChXEkNLd6Uon2eOaSR8oCLoGgA6Kjwc14RYVQXeYJdSZjleAUMOCYUOLw65qEvP3o0YOhaMVhRCdm53YItDQ0l4JyckGaRkXzYtHEiha7NFj0AMCFess0xiXRyIhwplsKrocwUtEEfqgcN5rVOlUwcWhzXi93aNyzy6wi8JdaHwZGfXb-P_OeEMnJ0Fp-LpfVRaRN7wGNO5cgn1wD4_rDdPnKRFc2"
+                  />
+                  <button
+                    class="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 dark:bg-black/50 text-gray-700 dark:text-gray-200 backdrop-blur-sm hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <span class="material-symbols-outlined text-xl"
+                      >favorite_border</span
+                    >
+                  </button>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <p class="text-gray-500 dark:text-gray-400 text-sm">HP</p>
+                  <p
+                    class="text-gray-900 dark:text-white text-base font-bold leading-normal truncate"
+                  >
+                    Chromebook Rápido
+                  </p>
+                  <div class="flex items-center gap-1">
+                    <span class="text-yellow-400">★★★★☆</span>
+                    <span
+                      class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+                      >(180)</span
+                    >
+                  </div>
+                  <div class="flex items-baseline justify-between mt-2">
+                    <p class="text-primary text-lg font-bold leading-normal">
+                      S/ 350.00
+                    </p>
+                    <button
+                      class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >add_shopping_cart</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="group flex flex-col gap-3 rounded-xl bg-card-light dark:bg-card-dark p-4 border border-gray-200 dark:border-gray-800 hover:border-primary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-primary/10"
+              >
+                <div
+                  class="relative w-full aspect-square overflow-hidden rounded-lg"
+                >
+                  <img
+                    alt="Laptop de Diseño Gráfico de alta gama mostrando una paleta de colores"
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvcLuByYiPUlf7HQJW40J4Tch0z_kvhEP7I80N2cKWQvkB475SBO9EDPjeY462i7Bi02gcRkpR6qIT1r5XQIhTinzFdYPp1mv1YVwEJ6Bb4CWehmuNu2b-aJlLBoNdZqKGeMBuh5rNYSA9bPRocCGpB6Udhet7suGcVSEC3nM2fkj1oy_8aRPodCa6vvpJbQUdqeHbTgKfp9YzhqT4hx__SoBYO9yDxA_JxDANZ1vNi2FBrhkQqSI3LDNXTLbE6eLt2G7ehdHrDMGC"
+                  />
+                  <button
+                    class="absolute top-2 right-2 flex h-8 w-8 items-center justify-center rounded-full bg-white/80 dark:bg-black/50 text-gray-700 dark:text-gray-200 backdrop-blur-sm hover:bg-primary hover:text-white transition-colors"
+                  >
+                    <span class="material-symbols-outlined text-xl"
+                      >favorite</span
+                    >
+                  </button>
+                </div>
+                <div class="flex flex-col gap-1">
+                  <p class="text-gray-500 dark:text-gray-400 text-sm">Dell</p>
+                  <p
+                    class="text-gray-900 dark:text-white text-base font-bold leading-normal truncate"
+                  >
+                    Laptop de Diseño Gráfico
+                  </p>
+                  <div class="flex items-center gap-1">
+                    <span class="text-yellow-400">★★★★★</span>
+                    <span
+                      class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal"
+                      >(75)</span
+                    >
+                  </div>
+                  <div class="flex items-baseline justify-between mt-2">
+                    <p class="text-primary text-lg font-bold leading-normal">
+                      S/ 1,850.00
+                    </p>
+                    <button
+                      class="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >add_shopping_cart</span
+                      >
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <nav
+              class="flex items-center justify-between border-t border-gray-200 dark:border-gray-800 px-4 py-6 sm:px-0 mt-10"
+            >
+              <div class="flex flex-1 justify-between sm:hidden">
+                <a
+                  class="relative inline-flex items-center rounded-md border border-gray-300 dark:border-gray-700 bg-card-light dark:bg-card-dark px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
+                  href="#"
+                  >Anterior</a
+                >
+                <a
+                  class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 dark:border-gray-700 bg-card-light dark:bg-card-dark px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
+                  href="#"
+                  >Siguiente</a
+                >
+              </div>
+              <div
+                class="hidden sm:flex sm:flex-1 sm:items-center sm:justify-between"
+              >
+                <div>
+                  <p class="text-sm text-gray-700 dark:text-gray-400">
+                                                        Mostrando              
+                                          <span class="font-medium">1</span>    
+                                                    a                          
+                              <span class="font-medium">8</span>                
+                                        de                                    
+                    <span class="font-medium">124</span>                        
+                                resultados                                
+                  </p>
+                </div>
+                <div>
+                  <nav
+                    aria-label="Pagination"
+                    class="isolate inline-flex -space-x-px rounded-md shadow-sm"
+                  >
+                    <a
+                      class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 focus:z-20 focus:outline-offset-0"
+                      href="#"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >chevron_left</span
+                      >
+                    </a>
+                    <a
+                      aria-current="page"
+                      class="relative z-10 inline-flex items-center bg-primary/20 text-primary px-4 py-2 text-sm font-semibold focus:z-20"
+                      href="#"
+                      >1</a
+                    >
+                    <a
+                      class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 focus:z-20"
+                      href="#"
+                      >2</a
+                    >
+                    <a
+                      class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 focus:z-20 md:inline-flex"
+                      href="#"
+                      >3</a
+                    >
+                    <span
+                      class="relative inline-flex items-center px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-400 ring-1 ring-inset ring-gray-300 dark:ring-gray-700"
+                      >...</span
+                    >
+                    <a
+                      class="relative hidden items-center px-4 py-2 text-sm font-semibold text-gray-900 dark:text-white ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 focus:z-20 md:inline-flex"
+                      href="#"
+                      >10</a
+                    >
+                    <a
+                      class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 dark:ring-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800 focus:z-20 focus:outline-offset-0"
+                      href="#"
+                    >
+                      <span class="material-symbols-outlined text-xl"
+                        >chevron_right</span
+                      >
+                    </a>
+                  </nav>
+                </div>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
