@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>TechEase - Productos Destacados</title>
+    <title>TechEase | Tu tienda virtual</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
@@ -42,13 +42,9 @@
       .material-symbols-outlined {
         font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
       }
-
-      /* Estilo para el ícono de favorito 'lleno' */
       .material-symbols-outlined.filled {
         font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
       }
-
-      /* Pequeña animación para el badge del carrito */
       @keyframes pop {
         0% {
           transform: scale(1);
@@ -63,38 +59,35 @@
       .pop-animation {
         animation: pop 0.3s ease-out;
       }
-
-      /* Estilo base para botones de categoría */
       .category-button {
         display: flex;
-        height: 2.5rem; /* h-10 */
+        height: 2.5rem;
         flex-shrink: 0;
         cursor: pointer;
         align-items: center;
         justify-content: center;
-        column-gap: 0.5rem; /* gap-x-2 */
-        border-radius: 9999px; /* rounded-full */
-        background-color: #e5e7eb; /* bg-gray-200 */
-        padding-left: 1rem; /* px-4 */
-        padding-right: 1rem; /* px-4 */
+        column-gap: 0.5rem;
+        border-radius: 9999px;
+        background-color: #e5e7eb;
+        padding-left: 1rem;
+        padding-right: 1rem;
         transition: background-color 0.2s, color 0.2s;
       }
       .category-button:hover {
-        background-color: #d1d5db; /* hover:bg-gray-300 */
+        background-color: #d1d5db;
       }
       .dark .category-button {
-        background-color: rgba(255, 255, 255, 0.1); /* dark:bg-white/10 */
+        background-color: rgba(255, 255, 255, 0.1);
       }
       .dark .category-button:hover {
-        background-color: rgba(255, 255, 255, 0.2); /* dark:hover:bg-white/20 */
+        background-color: rgba(255, 255, 255, 0.2);
       }
-      /* Estilo para el botón ACTIVO */
       .category-button.active {
-        background-color: #0da6f2; /* bg-primary */
+        background-color: #0da6f2;
         color: white;
       }
       .dark .category-button.active {
-        background-color: #0da6f2; /* bg-primary */
+        background-color: #0da6f2;
         color: white;
       }
     </style>
@@ -111,117 +104,7 @@
           <div
             class="layout-content-container flex w-full flex-col max-w-6xl px-4 sm:px-6 lg:px-8"
           >
-            <header
-              class="flex items-center justify-between whitespace-nowrap border-b border-gray-200 dark:border-white/10 py-4"
-            >
-              <div class="flex items-center gap-8">
-                <a
-                  class="flex items-center gap-2 text-gray-900 dark:text-white"
-                  href="index.html"
-                >
-                  <span class="material-symbols-outlined text-primary text-2xl">
-                    hub
-                  </span>
-                  <h2 class="text-xl font-bold">TechEase</h2>
-                </a>
-                <!-- Menú de navegación de ESCRITORIO (oculto en móvil) -->
-                <nav class="hidden md:flex items-center gap-6">
-                  <a
-                    class="text-sm font-medium hover:text-primary text-primary"
-                    href="index.html"
-                    >Productos</a
-                  >
-                </nav>
-              </div>
-              <div class="flex flex-1 items-center justify-end gap-4">
-                <!-- Iconos de la derecha (visibles en escritorio) -->
-                <div class="hidden sm:flex items-center gap-2">
-                  <button
-                    class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
-                  >
-                    <span class="material-symbols-outlined">person</span>
-                  </button>
-                  <button
-                    id="favorites-button"
-                    class="relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
-                  >
-                    <span class="material-symbols-outlined">favorite</span>
-                    <span
-                      id="favorites-badge"
-                      class="absolute top-1 right-1 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-primary rounded-full"
-                      style="display: none"
-                      >0</span
-                    >
-                  </button>
-                  <button
-                    id="cart-button"
-                    class="relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
-                  >
-                    <span class="material-symbols-outlined">shopping_cart</span>
-                    <span
-                      id="cart-badge"
-                      class="absolute top-1 right-1 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-primary rounded-full"
-                      style="display: none"
-                      >0</span
-                    >
-                  </button>
-                </div>
-
-                <!-- Botón Hamburguesa (solo visible en mobile) -->
-                <button
-                  id="mobile-menu-toggle"
-                  class="flex md:hidden cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
-                >
-                  <span class="material-symbols-outlined">menu</span>
-                </button>
-              </div>
-            </header>
-
-            <!-- Menú Móvil (Oculto por defecto) -->
-            <div
-              id="mobile-menu"
-              class="hidden md:hidden bg-background-light dark:bg-background-dark border-b border-gray-200 dark:border-white/10"
-            >
-              <nav class="flex flex-col p-4 space-y-2">
-                <a
-                  href="index.html"
-                  class="font-medium hover:text-primary text-primary"
-                  >Productos</a
-                >
-
-                <!-- Opcional: Iconos de carrito/favoritos en móvil -->
-                <div
-                  class="flex items-center gap-2 border-t border-gray-200 dark:border-white/10 pt-4 mt-2"
-                >
-                  <button
-                    id="mobile-favorites-button"
-                    class="relative flex-1 flex items-center justify-center gap-2 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
-                  >
-                    <span class="material-symbols-outlined">favorite</span>
-                    <span>Favoritos</span>
-                    <span
-                      id="mobile-favorites-badge"
-                      class="absolute top-1 right-1 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-primary rounded-full"
-                      style="display: none"
-                      >0</span
-                    >
-                  </button>
-                  <button
-                    id="mobile-cart-button"
-                    class="relative flex-1 flex items-center justify-center gap-2 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
-                  >
-                    <span class="material-symbols-outlined">shopping_cart</span>
-                    <span>Carrito</span>
-                    <span
-                      id="mobile-cart-badge"
-                      class="absolute top-1 right-1 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-primary rounded-full"
-                      style="display: none"
-                      >0</span
-                    >
-                  </button>
-                </div>
-              </nav>
-            </div>
+            <div id="header-placeholder"></div>
 
             <main class="py-10">
               <section class="mb-12 text-center">
@@ -237,7 +120,6 @@
                   tecnología.
                 </p>
                 <div class="max-w-2xl mx-auto">
-                  <!-- Barra de búsqueda -->
                   <label class="flex flex-col">
                     <div
                       class="relative flex w-full flex-1 items-stretch rounded-full h-14 bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 focus-within:ring-2 focus-within:ring-primary shadow-sm"
@@ -259,15 +141,11 @@
                 </div>
               </section>
 
-              <!-- Contenedor de Categorías - RESTAURADO -->
               <section class="mb-12">
-                <!-- CORREGIDO: Se quitó display:none -->
                 <div
                   id="category-buttons"
                   class="flex gap-3 overflow-x-auto [-ms-scrollbar-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pb-2"
-                >
-                  <!-- Los botones de categoría se generarán dinámicamente aquí -->
-                </div>
+                ></div>
               </section>
 
               <div class="flex items-center justify-between pb-4 pt-5">
@@ -279,15 +157,11 @@
                 </h2>
               </div>
 
-              <!-- Grilla de Productos -->
               <div
                 id="product-grid"
                 class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-              >
-                <!-- Los productos se insertarán aquí desde JS -->
-              </div>
+              ></div>
 
-              <!-- Mensaje de no resultados -->
               <div
                 id="no-results"
                 class="hidden text-center text-gray-500 dark:text-gray-400 py-24"
@@ -299,377 +173,57 @@
                 <p>Intenta ajustar tu búsqueda o filtros.</p>
               </div>
             </main>
-            <footer
-              class="mt-16 border-t border-gray-200 dark:border-white/10 pt-10 pb-8"
-            >
-              <!-- Contenido del footer AÑADIDO -->
-              <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div>
-                  <h3
-                    class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider"
-                  >
-                    Tienda
-                  </h3>
-                  <ul class="mt-4 space-y-2">
-                    <li>
-                      <a
-                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
-                        href="#"
-                        >Audifonos</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
-                        href="#"
-                        >Parlantes</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
-                        href="#"
-                        >Cargadores</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h3
-                    class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider"
-                  >
-                    Nosotros
-                  </h3>
-                  <ul class="mt-4 space-y-2">
-                    <li>
-                      <a
-                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
-                        href="#"
-                        >Sobre Nosotros</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
-                        href="#"
-                        >Prensa</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h3
-                    class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider"
-                  >
-                    Soporte
-                  </h3>
-                  <ul class="mt-4 space-y-2">
-                    <li>
-                      <a
-                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
-                        href="#"
-                        >Contacto</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
-                        href="#"
-                        >FAQ</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
-                        href="#"
-                        >Devoluciones</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-                <div>
-                  <h3
-                    class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider"
-                  >
-                    Legal
-                  </h3>
-                  <ul class="mt-4 space-y-2">
-                    <li>
-                      <a
-                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
-                        href="#"
-                        >Términos y Condiciones</a
-                      >
-                    </li>
-                    <li>
-                      <a
-                        class="text-sm text-gray-500 dark:text-gray-400 hover:text-primary"
-                        href="#"
-                        >Política de Privacidad</a
-                      >
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div
-                class="mt-10 pt-8 border-t border-gray-200 dark:border-white/10 text-center"
-              >
-                <p class="text-sm text-gray-500 dark:text-gray-400">
-                  © 2025 TechEase. Todos los derechos reservados
-                </p>
-              </div>
-            </footer>
+
+            <div id="footer-placeholder"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Modal del Carrito -->
-    <div
-      id="cart-modal"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
-      style="display: none"
-    >
-      <div
-        class="bg-background-light dark:bg-background-dark w-full max-w-md rounded-xl shadow-2xl m-4"
-      >
-        <div
-          class="flex items-center justify-between border-b border-gray-200 dark:border-white/10 p-4"
-        >
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-            Tu Carrito
-          </h3>
-          <button
-            id="close-cart-modal"
-            class="text-gray-500 hover:text-primary"
-          >
-            <span class="material-symbols-outlined">close</span>
-          </button>
-        </div>
-        <div id="cart-modal-body" class="p-6 max-h-[60vh] overflow-y-auto">
-          <!-- Items del carrito se insertarán aquí -->
-          <p class="text-center text-gray-500 dark:text-gray-400">
-            Tu carrito está vacío.
-          </p>
-        </div>
-        <div
-          class="border-t border-gray-200 dark:border-white/10 p-4 bg-gray-50 dark:bg-white/5 rounded-b-xl"
-        >
-          <div class="flex justify-between items-center mb-4">
-            <span class="text-lg font-medium text-gray-800 dark:text-gray-200"
-              >Total:</span
-            >
-            <span
-              id="cart-total"
-              class="text-xl font-bold text-gray-900 dark:text-white"
-              >S/ 0.00</span
-            >
-          </div>
-          <a
-            href="checkout.html"
-            class="w-full h-12 rounded-lg bg-primary text-white font-bold hover:bg-primary/90 transition flex items-center justify-center"
-          >
-            Ir a Pagar
-          </a>
-        </div>
-      </div>
-    </div>
+    <div id="modals-placeholder"></div>
 
-    <!-- Modal de Favoritos -->
-    <div
-      id="favorites-modal"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
-      style="display: none"
-    >
-      <div
-        class="bg-background-light dark:bg-background-dark w-full max-w-md rounded-xl shadow-2xl m-4"
-      >
-        <div
-          class="flex items-center justify-between border-b border-gray-200 dark:border-white/10 p-4"
-        >
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-            Tus Favoritos
-          </h3>
-          <button
-            id="close-favorites-modal"
-            class="text-gray-500 hover:text-primary"
-          >
-            <span class="material-symbols-outlined">close</span>
-          </button>
-        </div>
-        <div id="favorites-modal-body" class="p-6 max-h-[60vh] overflow-y-auto">
-          <!-- Items favoritos se insertarán aquí -->
-          <p class="text-center text-gray-500 dark:text-gray-400">
-            No tienes productos favoritos.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Plantilla de Script -->
     <script type="module">
-      // --- DATABASE (NUEVA BASE DE DATOS DE PRODUCTOS) ---
-      const allProducts = [
-        // Audifonos
-        {
-          id: 1,
-          name: "Audífonos WH-1000XM5",
-          category: "Audifonos",
-          brand: "AudioFlow",
-          price: 1499.9,
-          img: "img/audifono-1.jpeg",
-          alt: "Audífonos Sony WH-1000XM5",
-        },
-        {
-          id: 2,
-          name: "AirPods Pro 2da Gen",
-          category: "Audifonos",
-          brand: "Apple",
-          price: 1099.0,
-          img: "img/audifono-2.jpeg",
-          alt: "Audífonos AirPods Pro 2",
-        },
-        {
-          id: 3,
-          name: "Audífonos QuietComfort Ultra",
-          category: "Audifonos",
-          brand: "Bose",
-          price: 1799.0,
-          img: "img/audifono-3.jpeg",
-          alt: "Audífonos Bose QuietComfort Ultra",
-        },
+      import { loadLayout } from "./js/loader.js";
+      await loadLayout();
 
-        // Parlantes
-        {
-          id: 4,
-          name: "Parlante Bluetooth Charge 5",
-          category: "Parlantes",
-          brand: "JBL",
-          price: 649.0,
-          img: "img/parlantes-1.jpeg",
-          alt: "Parlante JBL Charge 5",
-        },
-        {
-          id: 5,
-          name: "Parlante SoundLink Flex",
-          category: "Parlantes",
-          brand: "Bose",
-          price: 799.0,
-          img: "img/parlantes-2.jpeg",
-          alt: "Parlante Bose SoundLink Flex",
-        },
-        {
-          id: 6,
-          name: "Parlante inteligente Echo Dot 5",
-          category: "Parlantes",
-          brand: "Amazon",
-          price: 229.0,
-          img: "img/parlantes-3.jpeg",
-          alt: "Parlante Amazon Echo Dot 5",
-        },
+      import {
+        initializeApp,
+        allProducts,
+        cart,
+        favorites,
+        saveCart,
+        saveFavorites,
+        updateCartBadge,
+        updateFavoritesBadge,
+        getProductQuantityInCart,
+        removeSingleInstanceFromCart,
+        removeAllOfProductFromCart
+      } from "./js/app.js";
 
-        // Cargadores
-        {
-          id: 7,
-          name: "Cargador Anker 735 GaNPrime 65W",
-          category: "Cargadores",
-          brand: "Samsung",
-          price: 119.0,
-          img: "img/cargador-1.jpeg",
-          alt: "Cargador Anker 65W",
-        },
-        {
-          id: 8,
-          name: "Cargador USB-C 20W",
-          category: "Cargadores",
-          brand: "Huawei",
-          price: 69.0,
-          img: "img/cargador-2.jpeg",
-          alt: "Cargador Apple 20W",
-        },
-        {
-          id: 9,
-          name: "Cargador Inalámbrico 3-en-1",
-          category: "Cargadores",
-          brand: "Xiaomi",
-          price: 49.0,
-          img: "img/cargador-3.jpeg",
-          alt: "Cargador Belkin 3-en-1",
-        },
-      ];
+      initializeApp();
 
-      // --- STATE ---
-      let cart = [];
-      let favorites = [];
-      let selectedCategory = "Todos"; // RESTAURADO
-      let searchTerm = ""; // Estado para el término de búsqueda
-
-      // --- DOM SELECTORS ---
       const productGrid = document.getElementById("product-grid");
       const noResultsMessage = document.getElementById("no-results");
       const categoryButtonsContainer =
-        document.getElementById("category-buttons"); // Se mantiene para ocultar la sección
+        document.getElementById("category-buttons");
       const searchInput = document.getElementById("search-input");
       const productGridTitle = document.getElementById("product-grid-title");
 
-      // --- ¡¡¡INICIO DE LA CORRECCIÓN!!! ---
-      // Selectores del Carrito
-      const cartButton = document.getElementById("cart-button");
-      const cartBadge = document.getElementById("cart-badge");
-      const cartModal = document.getElementById("cart-modal");
-      const closeCartModalButton = document.getElementById("close-cart-modal");
-      const cartModalBody = document.getElementById("cart-modal-body");
-      const cartTotalElement = document.getElementById("cart-total");
+      let selectedCategory = "Todos";
+      let searchTerm = "";
 
-      // Selectores de Favoritos
-      const favoritesButton = document.getElementById("favorites-button");
-      const favoritesBadge = document.getElementById("favorites-badge");
-      const favoritesModal = document.getElementById("favorites-modal");
-      const closeFavoritesModalButton = document.getElementById(
-        "close-favorites-modal"
-      );
-      const favoritesModalBody = document.getElementById(
-        "favorites-modal-body"
-      );
-
-      // Selectores del Menú Móvil
-      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const mobileMenuIcon = mobileMenuToggle.querySelector("span"); // Para cambiar el ícono
-      // Botones de carrito/favoritos en el menú móvil
-      const mobileCartButton = document.getElementById("mobile-cart-button");
-      const mobileFavoritesButton = document.getElementById(
-        "mobile-favorites-button"
-      );
-      const mobileCartBadge = document.getElementById("mobile-cart-badge");
-      const mobileFavoritesBadge = document.getElementById(
-        "mobile-favorites-badge"
-      );
-      // --- ¡¡¡FIN DE LA CORRECCIÓN!!! ---
-
-      // --- RENDER FUNCTIONS ---
-
-      /**
-       * (NUEVO) Renderiza los botones de categoría dinámicamente.
-       */
       function renderCategories() {
-        // RESTAURADO: Esta función ahora genera botones dinámicamente
         if (!categoryButtonsContainer) return;
 
-        // 1. Obtener categorías únicas de los productos
         const categories = [...new Set(allProducts.map((p) => p.category))];
-
-        // 2. Limpiar botones existentes
         categoryButtonsContainer.innerHTML = "";
 
-        // 3. Crear y añadir el botón "Todos"
         const allButton = document.createElement("button");
         allButton.dataset.category = "Todos";
-        allButton.className = "category-button active"; // Activo por defecto
+        allButton.className = "category-button active";
         allButton.innerHTML = `<p class="text-sm font-medium">Todos</p>`;
         categoryButtonsContainer.appendChild(allButton);
 
-        // 4. Crear y añadir botones para cada categoría única
         categories.forEach((category) => {
           const categoryBtn = document.createElement("button");
           categoryBtn.dataset.category = category;
@@ -678,18 +232,13 @@
           categoryButtonsContainer.appendChild(categoryBtn);
         });
 
-        // 5. Asegurarse de que la sección esté visible (por si acaso)
         const section = categoryButtonsContainer.closest("section");
         if (section) section.style.display = "block";
       }
 
-      /**
-       * Renderiza la grilla de productos basado en los filtros actuales.
-       */
       function renderProducts() {
         productGrid.innerHTML = "";
 
-        // 1. Filtrar por Categoría - RESTAURADO
         let productsToRender = allProducts;
         if (selectedCategory !== "Todos") {
           productsToRender = allProducts.filter(
@@ -697,7 +246,6 @@
           );
         }
 
-        // 2. Filtrar por Búsqueda (sobre los resultados de categoría)
         if (searchTerm) {
           const lowerSearchTerm = searchTerm.toLowerCase();
           productsToRender = productsToRender.filter(
@@ -707,274 +255,137 @@
           );
         }
 
-        // 3. Actualizar título - RESTAURADO
         productGridTitle.textContent = searchTerm
           ? `Resultados para "${searchTerm}"`
           : selectedCategory === "Todos"
           ? "Nuestros Productos"
           : selectedCategory;
 
-        // 4. Renderizar o mostrar mensaje "sin resultados"
         if (productsToRender.length === 0) {
           noResultsMessage.style.display = "block";
         } else {
           noResultsMessage.style.display = "none";
         }
 
-        // --- ¡¡¡INICIO DE LA CORRECCIÓN!!! ---
-        // 5. Generar HTML (Esta parte faltaba)
         productsToRender.forEach((product) => {
           const isFavorite = favorites.includes(product.id);
+          const quantityInCart = getProductQuantityInCart(product.id);
+
+          let actionsHtml = '';
+          if (quantityInCart === 0) {
+            actionsHtml = `
+              <button data-product-id="${product.id}" class="add-to-cart-btn mt-3 w-full h-10 rounded-lg bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary font-bold hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition border border-primary/20">
+                Añadir al Carrito
+              </button>
+            `;
+          } else {
+            actionsHtml = `
+              <div class="mt-3 flex items-center justify-between gap-3">
+                <div class="flex items-center border border-gray-300 dark:border-gray-700 rounded-lg h-10">
+                  <button data-product-id="${product.id}" data-action="decrease" class="quantity-change-btn px-3 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-l-lg transition-colors">
+                    -
+                  </button>
+                  <span class="w-10 text-center text-sm font-bold bg-transparent border-x border-gray-300 dark:border-gray-700">${quantityInCart}</span>
+                  <button data-product-id="${product.id}" data-action="increase" class="quantity-change-btn px-3 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-r-lg transition-colors">
+                    +
+                  </button>
+                </div>
+                <button data-product-id="${product.id}" data-action="remove-all" title="Eliminar producto" class="remove-all-btn flex items-center justify-center gap-2 h-10 px-3 rounded-lg text-white font-bold bg-red-600 hover:bg-red-700 dark:bg-red-700 dark:hover:bg-red-800 transition-colors">
+                  <span class="material-symbols-outlined text-lg">delete</span>
+                  <span class="text-sm">Eliminar</span>
+                </button>
+              </div>
+            `;
+          }
+          
           const productCard = `
           <div class="flex flex-col gap-3 group">
             <div class="relative w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-gray-200 dark:bg-white/5 overflow-hidden">
-              <!-- ENLACE EN LA IMAGEN (a product-detail.html) -->
               <a href="product-detail.html?id=${product.id}">
-                <img alt="${
-                  product.alt
-                }" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="${
-            product.img
-          }" />
+                <img alt="${product.alt}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="${product.img}" />
               </a>
-              <button data-product-id="${
-                product.id
-              }" class="favorite-btn absolute top-3 right-3 flex items-center justify-center h-8 w-8 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur-sm text-gray-800 dark:text-white hover:bg-white dark:hover:bg-black transition">
-                <span class="material-symbols-outlined text-lg ${
-                  isFavorite ? "filled text-red-500" : ""
-                }">favorite</span>
+              <button data-product-id="${product.id}" class="favorite-btn absolute top-3 right-3 flex items-center justify-center h-8 w-8 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur-sm text-gray-800 dark:text-white hover:bg-white dark:hover:bg-black transition">
+                <span class="material-symbols-outlined text-lg ${isFavorite ? "filled text-red-500" : ""}">favorite</span>
               </button>
             </div>
             <div>
-              <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">${
-                product.brand
-              }</p>
-              <!-- ENLACE EN EL NOMBRE (a product-detail.html) -->
-              <a href="product-detail.html?id=${
-                product.id
-              }" class="hover:underline">
-                <p class="text-gray-900 dark:text-white text-base font-medium leading-normal truncate">${
-                  product.name
-                }</p>
+              <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">${product.brand}</p>
+              <a href="product-detail.html?id=${product.id}" class="hover:underline">
+                <p class="text-gray-900 dark:text-white text-base font-medium leading-normal truncate">${product.name}</p>
               </a>
-              <p class="text-gray-800 dark:text-gray-200 text-base font-bold leading-normal mt-1">S/ ${product.price.toFixed(
-                2
-              )}</p>
-              <button data-product-id="${
-                product.id
-              }" class="add-to-cart-btn mt-3 w-full h-10 rounded-lg bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary font-bold hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition border border-primary/20">
-                Añadir al Carrito
-              </button>
+              <p class="text-gray-800 dark:text-gray-200 text-base font-bold leading-normal mt-1">S/ ${product.price.toFixed(2)}</p>
+              
+              <div class="product-actions">
+                ${actionsHtml}
+              </div>
+
             </div>
           </div>
         `;
           productGrid.insertAdjacentHTML("beforeend", productCard);
         });
-      } // <-- Esta llave de cierre faltaba
-      // --- ¡¡¡FIN DE LA CORRECCIÓN!!! ---
-
-      /**
-       * Renderiza el contenido del modal del carrito.
-       */
-      function renderCartModal() {
-        cartModalBody.innerHTML = "";
-        let total = 0;
-
-        if (cart.length === 0) {
-          cartModalBody.innerHTML =
-            '<p class="text-center text-gray-500 dark:text-gray-400">Tu carrito está vacío.</p>';
-        } else {
-          const cartItems = cart.reduce((acc, product) => {
-            acc[product.id] = acc[product.id] || { ...product, quantity: 0 };
-            acc[product.id].quantity += 1;
-            return acc;
-          }, {});
-
-          Object.values(cartItems).forEach((item) => {
-            const itemTotal = item.price * item.quantity;
-            total += itemTotal;
-            const cartItemHTML = `
-            <div class="flex items-center gap-4 mb-4">
-              <img src="${item.img}" alt="${
-              item.alt
-            }" class="w-16 h-16 object-cover rounded-lg">
-              <div class="flex-1">
-                <p class="font-medium text-gray-900 dark:text-white">${
-                  item.name
-                }</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">S/ ${item.price.toFixed(
-                  2
-                )} x ${item.quantity}</p>
-              </div>
-              <div class="text-right">
-                  <p class="font-bold text-gray-900 dark:text-white">S/ ${itemTotal.toFixed(
-                    2
-                  )}</p>
-                  <button data-product-id="${
-                    item.id
-                  }" class="remove-from-cart-btn text-sm text-red-500 hover:underline">Quitar</button>
-              </div>
-            </div>
-          `;
-            cartModalBody.insertAdjacentHTML("beforeend", cartItemHTML);
-          });
-        }
-        cartTotalElement.textContent = `S/ ${total.toFixed(2)}`;
       }
 
-      /**
-       * Renderiza el contenido del modal de favoritos.
-       */
-      function renderFavoritesModal() {
-        favoritesModalBody.innerHTML = "";
-
-        if (favorites.length === 0) {
-          favoritesModalBody.innerHTML =
-            '<p class="text-center text-gray-500 dark:text-gray-400">No tienes productos favoritos.</p>';
-        } else {
-          // Obtener los productos únicos
-          const uniqueFavoriteIds = [...new Set(favorites)];
-          const favoriteProducts = allProducts.filter((p) =>
-            uniqueFavoriteIds.includes(p.id)
-          );
-
-          favoriteProducts.forEach((item) => {
-            const favItemHTML = `
-            <div class="flex items-center gap-4 mb-4">
-              <img src="${item.img}" alt="${
-              item.alt
-            }" class="w-16 h-16 object-cover rounded-lg">
-              <div class="flex-1">
-                <p class="font-medium text-gray-900 dark:text-white">${
-                  item.name
-                }</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">${
-                  item.brand
-                }</p>
-                <p class="font-bold text-primary">S/ ${item.price.toFixed(
-                  2
-                )}</p>
-              </div>
-              <div class="text-right">
-                  <!-- El botón de favorito en la grilla principal maneja la lógica de quitar -->
-                  <a href="product-detail.html?id=${
-                    item.id
-                  }" class="text-sm text-primary hover:underline">Ver</a>
-              </div>
-            </div>
-          `;
-            favoritesModalBody.insertAdjacentHTML("beforeend", favItemHTML);
-          });
-        }
-      }
-
-      // --- EVENT HANDLERS & LOGIC ---
-
-      /**
-       * Actualiza el badge del carrito (en escritorio y móvil).
-       */
-      function updateCartBadge() {
-        const count = cart.length;
-        const badges = [cartBadge, mobileCartBadge];
-
-        badges.forEach((badge) => {
-          if (count === 0) {
-            badge.style.display = "none";
-          } else {
-            badge.style.display = "flex";
-            badge.textContent = count;
-            badge.classList.add("pop-animation");
-            badge.onanimationend = () =>
-              badge.classList.remove("pop-animation");
-          }
-        });
-      }
-
-      /**
-       * Actualiza el badge de favoritos (en escritorio y móvil).
-       */
-      function updateFavoritesBadge() {
-        const uniqueFavorites = [...new Set(favorites)]; // Contar únicos
-        const count = uniqueFavorites.length;
-        const badges = [favoritesBadge, mobileFavoritesBadge];
-
-        badges.forEach((badge) => {
-          if (count === 0) {
-            badge.style.display = "none";
-          } else {
-            badge.style.display = "flex";
-            badge.textContent = count;
-            badge.classList.add("pop-animation");
-            badge.onanimationend = () =>
-              badge.classList.remove("pop-animation");
-          }
-        });
-      }
-
-      /**
-       * Maneja los clics dentro del modal del carrito (Quitar item).
-       */
-      function handleCartModalClick(event) {
-        const button = event.target.closest("button");
-        if (!button || !button.classList.contains("remove-from-cart-btn"))
-          return;
-
-        const productId = parseInt(button.dataset.productId);
-        const productIndex = cart.findIndex((p) => p.id === productId);
-        if (productIndex > -1) {
-          cart.splice(productIndex, 1); // Quitar solo un item
-        }
-
-        renderCartModal();
-        updateCartBadge();
-      }
-
-      /**
-       * Maneja los clics dentro de la grilla de productos (Favoritos, Añadir al carrito).
-       */
       function handleProductGridClick(event) {
         const button = event.target.closest("button");
         if (!button) return;
 
-        const productId = button.dataset.productId;
-        if (!productId) return;
+        const productIdStr = button.dataset.productId;
+        if (!productIdStr) return;
+        
+        const productId = parseInt(productIdStr);
+        const product = allProducts.find((p) => p.id === productId);
 
-        // --- Lógica de Favoritos ---
+        let cartChanged = false;
+
         if (button.classList.contains("favorite-btn")) {
           const icon = button.querySelector("span");
-          const id = parseInt(productId);
-
-          if (favorites.includes(id)) {
-            favorites = favorites.filter((favId) => favId !== id);
+          if (favorites.includes(productId)) {
+            favorites = favorites.filter((favId) => favId !== productId);
             icon.classList.remove("filled", "text-red-500");
           } else {
-            favorites.push(id);
+            favorites.push(productId);
             icon.classList.add("filled", "text-red-500");
           }
-          updateFavoritesBadge(); // <-- AÑADIDO
+          saveFavorites();
+          updateFavoritesBadge();
+          return; 
         }
 
-        // --- Lógica de Añadir al Carrito ---
+        if (!product) return;
+
         if (button.classList.contains("add-to-cart-btn")) {
-          const product = allProducts.find((p) => p.id === parseInt(productId));
-          if (product) {
+          cart.push(product);
+          cartChanged = true;
+        }
+
+        if (button.classList.contains("quantity-change-btn")) {
+          const action = button.dataset.action;
+          if (action === 'increase') {
             cart.push(product);
-            updateCartBadge();
+            cartChanged = true;
+          } else if (action === 'decrease') {
+            cartChanged = removeSingleInstanceFromCart(productId);
           }
+        }
+        
+        if (button.classList.contains("remove-all-btn")) {
+          cartChanged = removeAllOfProductFromCart(productId);
+        }
+
+        if (cartChanged) {
+          saveCart();
+          updateCartBadge();
+          renderProducts(); 
         }
       }
 
-      /**
-       * Maneja el clic en los botones de categoría.
-       */
-      // RESTAURADO
       function handleCategoryClick(event) {
         const button = event.target.closest(".category-button");
         if (!button) return;
 
-        // Actualizar estado
         selectedCategory = button.dataset.category;
 
-        // Actualizar UI de botones
         categoryButtonsContainer
           .querySelectorAll(".category-button")
           .forEach((btn) => {
@@ -982,94 +393,21 @@
           });
         button.classList.add("active");
 
-        // Volver a renderizar productos
         renderProducts();
       }
 
-      /**
-       * Maneja la escritura en la barra de búsqueda.
-       */
       function handleSearchInput(event) {
         searchTerm = event.target.value;
         renderProducts();
       }
+      
+      renderCategories();
+      renderProducts();
 
-      // --- Funciones del Modal ---
-      function openCartModal() {
-        renderCartModal();
-        cartModal.style.display = "flex";
-        document.body.style.overflow = "hidden";
-      }
+      productGrid.addEventListener("click", handleProductGridClick);
+      categoryButtonsContainer.addEventListener("click", handleCategoryClick);
+      searchInput.addEventListener("input", handleSearchInput);
 
-      function closeCartModal() {
-        cartModal.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-
-      // --- Funciones del Modal (Favoritos) ---
-      function openFavoritesModal() {
-        renderFavoritesModal();
-        favoritesModal.style.display = "flex";
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeFavoritesModal() {
-        favoritesModal.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-
-      // --- (NUEVO) Lógica del Menú Móvil ---
-      function toggleMobileMenu() {
-        const isHidden = mobileMenu.classList.toggle("hidden");
-        if (isHidden) {
-          mobileMenuIcon.textContent = "menu";
-        } else {
-          mobileMenuIcon.textContent = "close";
-        }
-      }
-
-      // --- INITIALIZATION ---
-      document.addEventListener("DOMContentLoaded", () => {
-        // Renderizado inicial
-        renderCategories(); // (NUEVO) Renderiza categorías dinámicamente
-        renderProducts(); // Renderiza productos basado en el estado inicial
-
-        // Asignación de Event Listeners
-        productGrid.addEventListener("click", handleProductGridClick);
-        categoryButtonsContainer.addEventListener("click", handleCategoryClick); // RESTAURADO
-        searchInput.addEventListener("input", handleSearchInput);
-
-        // Listeners del Modal (Escritorio)
-        cartButton.addEventListener("click", openCartModal);
-        favoritesButton.addEventListener("click", openFavoritesModal);
-
-        // Listeners del Modal (Móvil)
-        mobileCartButton.addEventListener("click", openCartModal);
-        mobileFavoritesButton.addEventListener("click", openFavoritesModal);
-
-        // Listeners de cierre de Modales
-        closeCartModalButton.addEventListener("click", closeCartModal);
-        closeFavoritesModalButton.addEventListener(
-          "click",
-          closeFavoritesModal
-        );
-
-        cartModal.addEventListener("click", (event) => {
-          if (event.target === cartModal) {
-            closeCartModal();
-          }
-        });
-        favoritesModal.addEventListener("click", (event) => {
-          if (event.target === favoritesModal) {
-            closeFavoritesModal();
-          }
-        });
-
-        cartModalBody.addEventListener("click", handleCartModalClick);
-
-        // (NUEVO) Listeners del Menú Móvil
-        mobileMenuToggle.addEventListener("click", toggleMobileMenu);
-      });
     </script>
   </body>
 </html>

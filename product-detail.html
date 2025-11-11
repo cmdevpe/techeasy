@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <!-- Título se actualizará dinámicamente -->
     <title>Detalle de Producto - TechEase</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com" rel="preconnect" />
@@ -43,13 +42,9 @@
       .material-symbols-outlined {
         font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
       }
-
-      /* Estilo para el ícono de favorito 'lleno' */
       .material-symbols-outlined.filled {
         font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 24;
       }
-
-      /* Pequeña animación para el badge del carrito */
       @keyframes pop {
         0% {
           transform: scale(1);
@@ -64,8 +59,6 @@
       .pop-animation {
         animation: pop 0.3s ease-out;
       }
-
-      /* (Estilos de botones de categoría omitidos, no se usan en esta página) */
     </style>
   </head>
 
@@ -80,177 +73,172 @@
           <div
             class="layout-content-container flex w-full flex-col max-w-6xl px-4 sm:px-6 lg:px-8"
           >
-            <!-- CABECERA IDÉNTICA A INDEX.HTML -->
-            <header
-              class="flex items-center justify-between whitespace-nowrap border-b border-gray-200 dark:border-white/10 py-4"
-            >
-              <div class="flex items-center gap-8">
-                <a
-                  class="flex items-center gap-2 text-gray-900 dark:text-white"
-                  href="index.html" >
-                  <span class="material-symbols-outlined text-primary text-2xl">
-                    hub
-                  </span>
-                  <h2 class="text-xl font-bold">TechEase</h2>
-                </a>
-                <!-- Menú de navegación de ESCRITORIO (oculto en móvil) -->
-                <nav class="hidden md:flex items-center gap-6">
-                  <a
-                    class="text-sm font-medium hover:text-primary text-primary"
-                    href="index.html"
-                    >Productos</a
-                  >
-                  
-                </nav>
-              </div>
-              <div class="flex flex-1 items-center justify-end gap-4">
-                <!-- Iconos de la derecha (visibles en escritorio) -->
-                <div class="hidden sm:flex items-center gap-2">
-                  <button
-                    class="flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
-                  >
-                    <span class="material-symbols-outlined">person</span>
-                  </button>
-                  <button
-                    id="favorites-button"
-                    class="relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
-                  >
-                    <span class="material-symbols-outlined">favorite</span>
-                    <span
-                      id="favorites-badge"
-                      class="absolute top-1 right-1 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-primary rounded-full"
-                      style="display: none"
-                      >0</span
-                    >
-                  </button>
-                  <button
-                    id="cart-button"
-                    class="relative flex cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
-                  >
-                    <span class="material-symbols-outlined">shopping_cart</span>
-                    <span
-                      id="cart-badge"
-                      class="absolute top-1 right-1 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-primary rounded-full"
-                      style="display: none"
-                      >0</span
-                    >
-                  </button>
-                </div>
-
-                <!-- Botón Hamburguesa (solo visible en mobile) -->
-                <button
-                  id="mobile-menu-toggle"
-                  class="flex md:hidden cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 w-10 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10"
-                >
-                  <span class="material-symbols-outlined">menu</span>
-                </button>
-              </div>
-            </header>
-
-            <!-- Menú Móvil (Oculto por defecto) -->
-            <div
-              id="mobile-menu"
-              class="hidden md:hidden bg-background-light dark:bg-background-dark border-b border-gray-200 dark:border-white/10"
-            >
-              <nav class="flex flex-col p-4 space-y-2">
-                <a
-                  href="index.html"
-                  class="font-medium hover:text-primary text-primary"
-                  >Productos</a
-                >
-                
-                <div class="flex items-center gap-2 border-t border-gray-200 dark:border-white/10 pt-4 mt-2">
-                  <button id="mobile-favorites-button" class="relative flex-1 flex items-center justify-center gap-2 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10">
-                    <span class="material-symbols-outlined">favorite</span>
-                    <span>Favoritos</span>
-                     <span
-                      id="mobile-favorites-badge"
-                      class="absolute top-1 right-1 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-primary rounded-full"
-                      style="display: none"
-                      >0</span
-                    >
-                  </button>
-                  <button id="mobile-cart-button" class="relative flex-1 flex items-center justify-center gap-2 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10">
-                    <span class="material-symbols-outlined">shopping_cart</span>
-                    <span>Carrito</span>
-                     <span
-                      id="mobile-cart-badge"
-                      class="absolute top-1 right-1 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-primary rounded-full"
-                      style="display: none"
-                      >0</span
-                    >
-                  </button>
-                </div>
-              </nav>
-            </div>
-            <!-- FIN DE CABECERA IDÉNTICA -->
-
+            <div id="header-placeholder"></div>
 
             <main class="flex flex-1 justify-center py-5">
-              <div class="layout-content-container flex flex-col w-full max-w-6xl flex-1 px-4 md:px-8 lg:px-10">
-                <!-- Breadcrumbs (se llenarán dinámicamente) -->
+              <div
+                class="layout-content-container flex flex-col w-full max-w-6xl flex-1 px-4 md:px-8 lg:px-10"
+              >
                 <div class="flex flex-wrap gap-2 py-4">
-                  <a class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary transition-colors" href="index.html">Inicio</a>
-                  <span class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">/</span>
-                  <a id="breadcrumb-category" class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary transition-colors" href="index.html">Categoría</a>
-                  <span class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal">/</span>
-                  <span id="breadcrumb-product-name" class="text-gray-900 dark:text-white text-sm font-medium leading-normal">Nombre del Producto</span>
+                  <a
+                    class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                    href="index.html"
+                    >Inicio</a
+                  >
+                  <span
+                    class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal"
+                    >/</span
+                  >
+                  <a
+                    id="breadcrumb-category"
+                    class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal hover:text-primary transition-colors"
+                    href="index.html"
+                    >Categoría</a
+                  >
+                  <span
+                    class="text-gray-500 dark:text-gray-400 text-sm font-medium leading-normal"
+                    >/</span
+                  >
+                  <span
+                    id="breadcrumb-product-name"
+                    class="text-gray-900 dark:text-white text-sm font-medium leading-normal"
+                    >Nombre del Producto</span
+                  >
                 </div>
 
-                <!-- Contenido principal (layout del usuario) -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mt-4">
-                  
-                  <!-- Columna de Imagen -->
+                <div
+                  class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mt-4"
+                >
                   <div class="flex flex-col gap-4">
-                    <div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-gray-200 dark:bg-gray-700 rounded-xl min-h-80 aspect-square">
-                      <!-- Imagen principal se insertará aquí -->
-                      <img id="product-image-main" src="https://placehold.co/600x600/101c22/f5f7f8?text=Cargando..." alt="Producto" class="w-full h-full object-cover rounded-xl"/>
+                    <div
+                      class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-gray-200 dark:bg-gray-700 rounded-xl min-h-80 aspect-square"
+                    >
+                      <img
+                        id="product-image-main"
+                        src="https://placehold.co/600x600/101c22/f5f7f8?text=Cargando..."
+                        alt="Producto"
+                        class="w-full h-full object-cover rounded-xl"
+                      />
                     </div>
-                    <!-- Galería de thumbnails (simplificada, podrías añadir más lógica) -->
-                    <div id="product-gallery-thumbnails" class="grid grid-cols-4 gap-4">
-                      <!-- Thumbnails se podrían generar aquí si tuvieras más imágenes -->
-                    </div>
+                    <div
+                      id="product-gallery-thumbnails"
+                      class="grid grid-cols-4 gap-4"
+                    ></div>
                   </div>
 
-                  <!-- Columna de Información -->
                   <div class="flex flex-col gap-4">
                     <div class="flex flex-col gap-2">
-                      <p id="product-brand" class="text-primary text-sm font-bold uppercase tracking-wider">MARCA</p>
-                      <h1 id="product-name" class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]">Nombre del Producto</h1>
-                      <p id="product-description" class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal">Descripción del producto...</p>
+                      <p
+                        id="product-brand"
+                        class="text-primary text-sm font-bold uppercase tracking-wider"
+                      >
+                        MARCA
+                      </p>
+                      <h1
+                        id="product-name"
+                        class="text-gray-900 dark:text-white text-4xl font-black leading-tight tracking-[-0.033em]"
+                      >
+                        Nombre del Producto
+                      </h1>
+                      <p
+                        id="product-description"
+                        class="text-gray-600 dark:text-gray-400 text-base font-normal leading-normal"
+                      >
+                        Descripción del producto...
+                      </p>
                     </div>
                     <div class="flex items-center gap-4 py-2">
                       <div class="flex items-center gap-1">
-                        <span class="material-symbols-outlined text-yellow-400" style="font-variation-settings: 'FILL' 1">star</span>
-                        <span class="material-symbols-outlined text-yellow-400" style="font-variation-settings: 'FILL' 1">star</span>
-                        <span class="material-symbols-outlined text-yellow-400" style="font-variation-settings: 'FILL' 1">star</span>
-                        <span class="material-symbols-outlined text-yellow-400" style="font-variation-settings: 'FILL' 1">star</span>
-                        <span class="material-symbols-outlined text-yellow-400">star_half</span>
+                        <span
+                          class="material-symbols-outlined text-yellow-400"
+                          style="font-variation-settings: 'FILL' 1"
+                          >star</span
+                        >
+                        <span
+                          class="material-symbols-outlined text-yellow-400"
+                          style="font-variation-settings: 'FILL' 1"
+                          >star</span
+                        >
+                        <span
+                          class="material-symbols-outlined text-yellow-400"
+                          style="font-variation-settings: 'FILL' 1"
+                          >star</span
+                        >
+                        <span
+                          class="material-symbols-outlined text-yellow-400"
+                          style="font-variation-settings: 'FILL' 1"
+                          >star</span
+                        >
+                        <span class="material-symbols-outlined text-yellow-400"
+                          >star_half</span
+                        >
                       </div>
-                      <a class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" href="#reviews">(120 Reseñas)</a>
+                      <a
+                        class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                        href="#reviews"
+                        >(120 Reseñas)</a
+                      >
                     </div>
                     <div class="flex items-baseline gap-3 pt-2">
-                      <h2 id="product-price" class="text-gray-900 dark:text-white tracking-light text-[32px] font-bold leading-tight">S/ 0.00</h2>
-                      <!-- <span id="product-old-price" class="text-gray-500 text-xl font-medium leading-tight line-through">$1,499.00</span> -->
+                      <h2
+                        id="product-price"
+                        class="text-gray-900 dark:text-white tracking-light text-[32px] font-bold leading-tight"
+                      >
+                        S/ 0.00
+                      </h2>
                     </div>
-                    <p class="text-sm font-medium text-green-600 dark:text-green-400 flex items-center gap-2"><span class="material-symbols-outlined text-base">check_circle</span> En Stock</p>
-                    
-                    <!-- Acciones -->
-                    <div class="flex flex-col gap-4 py-6 border-t border-b border-gray-200 dark:border-gray-800">
+                    <p
+                      class="text-sm font-medium text-green-600 dark:text-green-400 flex items-center gap-2"
+                    >
+                      <span class="material-symbols-outlined text-base"
+                        >check_circle</span
+                      >
+                      En Stock
+                    </p>
+
+                    <div
+                      class="flex flex-col gap-4 py-6 border-t border-b border-gray-200 dark:border-gray-800"
+                    >
                       <div class="flex items-center gap-4">
-                        <label class="text-sm font-medium" for="quantity">Cantidad:</label>
-                        <div class="flex items-center border border-gray-300 dark:border-gray-700 rounded-md">
-                          <!-- AÑADIDO: data-action para identificar los botones -->
-                          <button data-action="decrease" class="px-3 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-l-md transition-colors">-</button>
-                          <input class="w-12 text-center bg-transparent border-x border-gray-300 dark:border-gray-700 focus:ring-0 focus:border-primary" id="quantity" type="text" value="1"/>
-                          <button data-action="increase" class="px-3 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-r-md transition-colors">+</button>
+                        <label class="text-sm font-medium" for="quantity"
+                          >Cantidad:</label
+                        >
+                        <div
+                          class="flex items-center border border-gray-300 dark:border-gray-700 rounded-md"
+                        >
+                          <button
+                            data-action="decrease"
+                            class="px-3 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-l-md transition-colors"
+                          >
+                            -
+                          </button>
+                          <input
+                            class="w-12 text-center bg-transparent border-x border-gray-300 dark:border-gray-700 focus:ring-0 focus:border-primary"
+                            id="quantity"
+                            type="text"
+                            value="1"
+                          />
+                          <button
+                            data-action="increase"
+                            class="px-3 py-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-r-md transition-colors"
+                          >
+                            +
+                          </button>
                         </div>
                       </div>
-                      <button id="add-to-cart-detail-btn" class="w-full flex items-center justify-center gap-2 bg-primary text-white text-base font-bold leading-normal py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20">
-                        <span class="material-symbols-outlined">shopping_cart</span>
+                      <button
+                        id="add-to-cart-detail-btn"
+                        class="w-full flex items-center justify-center gap-2 bg-primary text-white text-base font-bold leading-normal py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors shadow-lg shadow-primary/20"
+                      >
+                        <span class="material-symbols-outlined"
+                          >shopping_cart</span
+                        >
                         Agregar al Carrito
                       </button>
-                      <button id="add-to-favorite-detail-btn" class="w-full flex items-center justify-center gap-2 bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white text-base font-bold leading-normal py-3 px-6 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors">
+                      <button
+                        id="add-to-favorite-detail-btn"
+                        class="w-full flex items-center justify-center gap-2 bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-white text-base font-bold leading-normal py-3 px-6 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
+                      >
                         <span class="material-symbols-outlined">favorite</span>
                         <span class="text">Añadir a Favoritos</span>
                       </button>
@@ -258,275 +246,85 @@
                   </div>
                 </div>
 
-                <!-- Pestañas de Descripción (estático) -->
                 <div class="w-full mt-12 lg:mt-16">
                   <div class="border-b border-gray-200 dark:border-gray-700">
                     <nav aria-label="Tabs" class="flex space-x-8">
-                      <!-- AÑADIDO: clase .tab-button y data-tab -->
-                      <button class="tab-button text-primary font-semibold py-4 px-1 border-b-2 border-primary text-base" data-tab="description">Descripción</button>
-                      <button class="tab-button text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 py-4 px-1 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 transition-colors text-base" data-tab="specs">Especificaciones</button>
-                      <button class="tab-button text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 py-4 px-1 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 transition-colors text-base" data-tab="reviews">Reseñas</button>
+                      <button
+                        class="tab-button text-primary font-semibold py-4 px-1 border-b-2 border-primary text-base"
+                        data-tab="description"
+                      >
+                        Descripción
+                      </button>
+                      <button
+                        class="tab-button text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 py-4 px-1 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 transition-colors text-base"
+                        data-tab="specs"
+                      >
+                        Especificaciones
+                      </button>
+                      <button
+                        class="tab-button text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 py-4 px-1 border-b-2 border-transparent hover:border-gray-300 dark:hover:border-gray-600 transition-colors text-base"
+                        data-tab="reviews"
+                      >
+                        Reseñas
+                      </button>
                     </nav>
                   </div>
-                  <!-- AÑADIDO: Contenedores para cada panel de pestaña -->
                   <div id="tab-content" class="py-8">
-                    
-                    <!-- Panel de Descripción (visible por defecto) -->
-                    <div id="description-panel" class="tab-panel prose prose-lg dark:prose-invert max-w-none prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-headings:text-gray-900 dark:prose-headings:text-white">
-                      <h3 class="text-2xl font-bold">Rendimiento que Impresiona</h3>
-                      <p>El Ultrabook Pro X1 redefine lo que es posible en un portátil delgado y ligero. Equipado con el último procesador Intel Core i9, 32 GB de RAM LPDDR5 y un SSD NVMe ultrarrápido de 1TB, está diseñado para manejar las tareas más exigentes con una fluidez asombrosa. Desde la edición de video 4K hasta el diseño 3D complejo, el Pro X1 no te defraudará.</p>
-                      <h3 class="text-2xl font-bold mt-6">Diseño Elegante, Pantalla Vibrante</h3>
-                      <p>Su chasis de aluminio unibody no solo es duradero, sino también increíblemente elegante. Con un peso de solo 1.2 kg y un grosor de 14.9 mm, es el compañero de viaje perfecto. La pantalla Liquid Retina XDR de 14 pulgadas ofrece colores vibrantes, negros profundos y un brillo excepcional, haciendo que cada imagen y video cobre vida.</p>
+                    <div
+                      id="description-panel"
+                      class="tab-panel prose prose-lg dark:prose-invert max-w-none prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-headings:text-gray-900 dark:prose-headings:text-white"
+                    >
                     </div>
 
-                    <!-- Panel de Especificaciones (oculto) -->
-                    <div id="specs-panel" class="tab-panel hidden prose prose-lg dark:prose-invert max-w-none prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-headings:text-gray-900 dark:prose-headings:text-white">
-                      <h3 class="text-2xl font-bold">Especificaciones Técnicas</h3>
-                      <ul class="list-disc pl-6">
-                        <li><strong>Procesador:</strong> Intel Core i9 de última generación</li>
-                        <li><strong>RAM:</strong> 32 GB LPDDR5</li>
-                        <li><strong>Almacenamiento:</strong> 1TB SSD NVMe Gen 4</li>
-                        <li><strong>Pantalla:</strong> 14" Liquid Retina XDR (3024 x 1964)</li>
-                        <li><strong>Peso:</strong> 1.2 kg</li>
-                        <li><strong>Puertos:</strong> 2x Thunderbolt 4, 1x USB-A, 1x HDMI</li>
-                      </ul>
+                    <div
+                      id="specs-panel"
+                      class="tab-panel hidden prose prose-lg dark:prose-invert max-w-none prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-headings:text-gray-900 dark:prose-headings:text-white"
+                    >
                     </div>
 
-                    <!-- Panel de Reseñas (oculto) -->
-                    <div id="reviews-panel" class="tab-panel hidden prose prose-lg dark:prose-invert max-w-none prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-headings:text-gray-900 dark:prose-headings:text-white">
-                      <h3 class="text-2xl font-bold">Reseñas de Clientes</h3>
-                      <p>(Contenido de reseñas iría aquí...)</p>
+                    <div
+                      id="reviews-panel"
+                      class="tab-panel hidden prose prose-lg dark:prose-invert max-w-none prose-p:text-gray-600 dark:prose-p:text-gray-400 prose-headings:text-gray-900 dark:prose-headings:text-white"
+                    >
                     </div>
-
                   </div>
                 </div>
               </div>
             </main>
 
-            <!-- Footer (simplificado, puedes copiar el de index.html si prefieres) -->
-            <footer
-              class="mt-16 border-t border-gray-200 dark:border-white/10 pt-10 pb-8"
-            >
-              <div class="text-center">
-                <p class="text-sm text-gray-500 dark:text-gray-400">
-                  © 2025 TechEase. Todos los derechos reservados
-                </p>
-              </div>
-            </footer>
+            <div id="footer-placeholder"></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- MODALES IDÉNTICOS A INDEX.HTML -->
-    <div
-      id="cart-modal"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
-      style="display: none"
-    >
-      <div
-        class="bg-background-light dark:bg-background-dark w-full max-w-md rounded-xl shadow-2xl m-4"
-      >
-        <div
-          class="flex items-center justify-between border-b border-gray-200 dark:border-white/10 p-4"
-        >
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-            Tu Carrito
-          </h3>
-          <button
-            id="close-cart-modal"
-            class="text-gray-500 hover:text-primary"
-          >
-            <span class="material-symbols-outlined">close</span>
-          </button>
-        </div>
-        <div id="cart-modal-body" class="p-6 max-h-[60vh] overflow-y-auto">
-          <p class="text-center text-gray-500 dark:text-gray-400">
-            Tu carrito está vacío.
-          </p>
-        </div>
-        <div
-          class="border-t border-gray-200 dark:border-white/10 p-4 bg-gray-50 dark:bg-white/5 rounded-b-xl"
-        >
-          <div class="flex justify-between items-center mb-4">
-            <span class="text-lg font-medium text-gray-800 dark:text-gray-200"
-              >Total:</span
-            >
-            <span
-              id="cart-total"
-              class="text-xl font-bold text-gray-900 dark:text-white"
-              >S/ 0.00</span
-            >
-          </div>
-          <a
-            href="checkout.html"
-            class="w-full h-12 rounded-lg bg-primary text-white font-bold hover:bg-primary/90 transition flex items-center justify-center"
-          >
-            Ir a Pagar
-          </a>
-        </div>
-      </div>
-    </div>
+    <div id="modals-placeholder"></div>
 
-    <div
-      id="favorites-modal"
-      class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
-      style="display: none"
-    >
-      <div
-        class="bg-background-light dark:bg-background-dark w-full max-w-md rounded-xl shadow-2xl m-4"
-      >
-        <div
-          class="flex items-center justify-between border-b border-gray-200 dark:border-white/10 p-4"
-        >
-          <h3 class="text-lg font-bold text-gray-900 dark:text-white">
-            Tus Favoritos
-          </h3>
-          <button
-            id="close-favorites-modal"
-            class="text-gray-500 hover:text-primary"
-          >
-            <span class="material-symbols-outlined">close</span>
-          </button>
-        </div>
-        <div id="favorites-modal-body" class="p-6 max-h-[60vh] overflow-y-auto">
-          <p class="text-center text-gray-500 dark:text-gray-400">
-            No tienes productos favoritos.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- FIN DE MODALES -->
-
-    <!-- Plantilla de Script -->
     <script type="module">
-      // --- DATABASE (IDÉNTICA A INDEX.HTML) ---
-      const allProducts = [
-        // Audifonos
-        {
-          id: 1,
-          name: "Audífonos WH-1000XM5",
-          category: "Audifonos",
-          brand: "Sony",
-          price: 1499.9,
-          img: "https://placehold.co/600x600/101c22/f5f7f8?text=WH-1000XM5",
-          alt: "Audífonos Sony WH-1000XM5 con cancelación de ruido.",
-        },
-        {
-          id: 2,
-          name: "AirPods Pro 2da Gen",
-          category: "Audifonos",
-          brand: "Apple",
-          price: 1099.0,
-          img: "https://placehold.co/600x600/101c22/f5f7f8?text=AirPods+Pro+2",
-          alt: "Audífonos inalámbricos Apple AirPods Pro 2.",
-        },
-        {
-          id: 3,
-          name: "Audífonos QuietComfort Ultra",
-          category: "Audifonos",
-          brand: "Bose",
-          price: 1799.0,
-          img: "https://placehold.co/600x600/101c22/f5f7f8?text=Bose+QC+Ultra",
-          alt: "Audífonos Bose QuietComfort Ultra con audio inmersivo.",
-        },
-        // Parlantes
-        {
-          id: 4,
-          name: "Parlante Bluetooth Charge 5",
-          category: "Parlantes",
-          brand: "JBL",
-          price: 649.0,
-          img: "https://placehold.co/600x600/101c22/f5f7f8?text=JBL+Charge+5",
-          alt: "Parlante portátil JBL Charge 5 resistente al agua.",
-        },
-        {
-          id: 5,
-          name: "Parlante SoundLink Flex",
-          category: "Parlantes",
-          brand: "Bose",
-          price: 799.0,
-          img: "https://placehold.co/600x600/101c22/f5f7f8?text=Bose+Flex",
-          alt: "Parlante Bose SoundLink Flex, robusto y portátil.",
-        },
-        {
-          id: 6,
-          name: "Parlante inteligente Echo Dot 5",
-          category: "Parlantes",
-          brand: "Amazon",
-          price: 229.0,
-          img: "https://placehold.co/600x600/101c22/f5f7f8?text=Echo+Dot+5",
-          alt: "Parlante inteligente Amazon Echo Dot 5ta generación con Alexa.",
-        },
-        // Cargadores
-        {
-          id: 7,
-          name: "Cargador Anker 735 GaNPrime 65W",
-          category: "Cargadores",
-          brand: "Anker",
-          price: 219.0,
-          img: "https://placehold.co/600x600/101c22/f5f7f8?text=Anker+65W",
-          alt: "Cargador rápido Anker 735 GaNPrime 65W, 3 puertos.",
-        },
-        {
-          id: 8,
-          name: "Cargador USB-C 20W",
-          category: "Cargadores",
-          brand: "Apple",
-          price: 129.0,
-          img: "https://placehold.co/600x600/101c22/f5f7f8?text=Apple+20W",
-          alt: "Cargador Apple USB-C original de 20W.",
-        },
-        {
-          id: 9,
-          name: "Cargador Inalámbrico 3-en-1",
-          category: "Cargadores",
-          brand: "Belkin",
-          price: 499.0,
-          img: "https://placehold.co/600x600/101c22/f5f7f8?text=Belkin+3-en-1",
-          alt: "Estación de carga inalámbrica Belkin 3-en-1 MagSafe.",
-        },
-      ];
+      import { loadLayout } from './js/loader.js';
+      await loadLayout();
 
-      // --- STATE (IDÉNTICO A INDEX.HTML) ---
-      // (Simulando localStorage para persistencia simple entre páginas)
-      let cart = JSON.parse(localStorage.getItem('techEaseCart')) || [];
-      let favorites = JSON.parse(localStorage.getItem('techEaseFavorites')) || [];
+      import {
+        initializeApp,
+        allProducts,
+        cart,
+        favorites,
+        saveCart,
+        saveFavorites,
+        updateCartBadge,
+        updateFavoritesBadge,
+        getProductQuantityInCart,
+        removeAllOfProductFromCart
+      } from './js/app.js';
+      initializeApp();
 
-      // --- DOM SELECTORS (Comunes + Específicos de esta página) ---
-      
-      // Selectores del Carrito
-      const cartButton = document.getElementById("cart-button");
-      const cartBadge = document.getElementById("cart-badge");
-      const cartModal = document.getElementById("cart-modal");
-      const closeCartModalButton = document.getElementById("close-cart-modal");
-      const cartModalBody = document.getElementById("cart-modal-body");
-      const cartTotalElement = document.getElementById("cart-total");
-      const mobileCartButton = document.getElementById("mobile-cart-button");
-      const mobileCartBadge = document.getElementById("mobile-cart-badge");
-
-      // Selectores de Favoritos
-      const favoritesButton = document.getElementById("favorites-button");
-      const favoritesBadge = document.getElementById("favorites-badge");
-      const favoritesModal = document.getElementById("favorites-modal");
-      const closeFavoritesModalButton = document.getElementById(
-        "close-favorites-modal"
+      const mainContent = document.querySelector(
+        'main .layout-content-container'
       );
-      const favoritesModalBody = document.getElementById(
-        "favorites-modal-body"
-      );
-      const mobileFavoritesButton = document.getElementById("mobile-favorites-button");
-      const mobileFavoritesBadge = document.getElementById("mobile-favorites-badge");
-      
-      // Selectores del Menú Móvil
-      const mobileMenuToggle = document.getElementById("mobile-menu-toggle");
-      const mobileMenu = document.getElementById("mobile-menu");
-      const mobileMenuIcon = mobileMenuToggle.querySelector("span");
-      
-      // Selectores de esta página
-      const mainContent = document.querySelector('main .layout-content-container');
       const breadcrumbCategory = document.getElementById('breadcrumb-category');
-      const breadcrumbProductName = document.getElementById('breadcrumb-product-name');
+      const breadcrumbProductName = document.getElementById(
+        'breadcrumb-product-name'
+      );
       const productImageMain = document.getElementById('product-image-main');
       const productBrand = document.getElementById('product-brand');
       const productName = document.getElementById('product-name');
@@ -534,353 +332,179 @@
       const productPrice = document.getElementById('product-price');
       const addToCartBtn = document.getElementById('add-to-cart-detail-btn');
       const addToFavBtn = document.getElementById('add-to-favorite-detail-btn');
-
-      // --- NUEVO: Selectores para Cantidad y Pestañas ---
       const quantityInput = document.getElementById('quantity');
-      const quantityDecreaseBtn = document.querySelector('[data-action="decrease"]');
-      const quantityIncreaseBtn = document.querySelector('[data-action="increase"]');
+      const quantityDecreaseBtn = document.querySelector(
+        '[data-action="decrease"]'
+      );
+      const quantityIncreaseBtn = document.querySelector(
+        '[data-action="increase"]'
+      );
       const tabButtons = document.querySelectorAll('.tab-button');
       const tabPanels = document.querySelectorAll('.tab-panel');
-
-
-      // --- FUNCIONES DE PERSISTENCIA (NUEVO) ---
-      function saveCart() {
-        localStorage.setItem('techEaseCart', JSON.stringify(cart));
-      }
-      function saveFavorites() {
-        localStorage.setItem('techEaseFavorites', JSON.stringify(favorites));
-      }
-
-
-      // --- RENDER FUNCTIONS (Comunes) ---
-
-      /**
-       * Renderiza el contenido del modal del carrito.
-       */
-      function renderCartModal() {
-        cartModalBody.innerHTML = "";
-        let total = 0;
-
-        if (cart.length === 0) {
-          cartModalBody.innerHTML =
-            '<p class="text-center text-gray-500 dark:text-gray-400">Tu carrito está vacío.</p>';
-        } else {
-          const cartItems = cart.reduce((acc, product) => {
-            acc[product.id] = acc[product.id] || { ...product, quantity: 0 };
-            acc[product.id].quantity += 1;
-            return acc;
-          }, {});
-
-          Object.values(cartItems).forEach((item) => {
-            const itemTotal = item.price * item.quantity;
-            total += itemTotal;
-            const cartItemHTML = `
-            <div class="flex items-center gap-4 mb-4">
-              <img src="${item.img}" alt="${
-              item.alt
-            }" class="w-16 h-16 object-cover rounded-lg">
-              <div class="flex-1">
-                <p class="font-medium text-gray-900 dark:text-white">${
-                  item.name
-                }</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">S/ ${item.price.toFixed(
-                  2
-                )} x ${item.quantity}</p>
-              </div>
-              <div class="text-right">
-                  <p class="font-bold text-gray-900 dark:text-white">S/ ${itemTotal.toFixed(
-                    2
-                  )}</p>
-                  <button data-product-id="${
-                    item.id
-                  }" class="remove-from-cart-btn text-sm text-red-500 hover:underline">Quitar</button>
-              </div>
-            </div>
-          `;
-            cartModalBody.insertAdjacentHTML("beforeend", cartItemHTML);
-          });
-        }
-        cartTotalElement.textContent = `S/ ${total.toFixed(2)}`;
-      }
-
-      /**
-       * Renderiza el contenido del modal de favoritos.
-       */
-      function renderFavoritesModal() {
-        favoritesModalBody.innerHTML = "";
-        if (favorites.length === 0) {
-          favoritesModalBody.innerHTML =
-            '<p class="text-center text-gray-500 dark:text-gray-400">No tienes productos favoritos.</p>';
-        } else {
-          const uniqueFavoriteIds = [...new Set(favorites)];
-          const favoriteProducts = allProducts.filter((p) =>
-            uniqueFavoriteIds.includes(p.id)
-          );
-
-          favoriteProducts.forEach((item) => {
-            const favItemHTML = `
-            <div class="flex items-center gap-4 mb-4">
-              <img src="${item.img}" alt="${
-              item.alt
-            }" class="w-16 h-16 object-cover rounded-lg">
-              <div class="flex-1">
-                <p class="font-medium text-gray-900 dark:text-white">${
-                  item.name
-                }</p>
-                <p class="text-sm text-gray-500 dark:text-gray-400">${
-                  item.brand
-                }</p>
-                <p class="font-bold text-primary">S/ ${item.price.toFixed(
-                  2
-                )}</p>
-              </div>
-              <div class="text-right">
-                  <a href="product-detail.html?id=${
-                    item.id
-                  }" class="text-sm text-primary hover:underline">Ver</a>
-              </div>
-            </div>
-          `;
-            favoritesModalBody.insertAdjacentHTML("beforeend", favItemHTML);
-          });
-        }
-      }
-
-      // --- EVENT HANDLERS & LOGIC (Comunes) ---
-
-      function updateCartBadge() {
-        const count = cart.length;
-        const badges = [cartBadge, mobileCartBadge];
-        badges.forEach(badge => {
-          if (count === 0) {
-            badge.style.display = "none";
-          } else {
-            badge.style.display = "flex";
-            badge.textContent = count;
-            badge.classList.add("pop-animation");
-            badge.onanimationend = () =>
-              badge.classList.remove("pop-animation");
-          }
-        });
-      }
-
-      function updateFavoritesBadge() {
-        const uniqueFavorites = [...new Set(favorites)];
-        const count = uniqueFavorites.length;
-        const badges = [favoritesBadge, mobileFavoritesBadge];
-        badges.forEach(badge => {
-          if (count === 0) {
-            badge.style.display = "none";
-          } else {
-            badge.style.display = "flex";
-            badge.textContent = count;
-            badge.classList.add("pop-animation");
-            badge.onanimationend = () =>
-              badge.classList.remove("pop-animation");
-          }
-        });
-      }
-
-      function handleCartModalClick(event) {
-        const button = event.target.closest("button");
-        if (!button || !button.classList.contains("remove-from-cart-btn"))
-          return;
-
-        const productId = parseInt(button.dataset.productId);
-        const productIndex = cart.findIndex((p) => p.id === productId);
-        if (productIndex > -1) {
-          cart.splice(productIndex, 1);
-        }
-        saveCart(); // Persistir
-        renderCartModal();
-        updateCartBadge();
-      }
-
-      function openCartModal() {
-        renderCartModal();
-        cartModal.style.display = "flex";
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeCartModal() {
-        cartModal.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-
-      function openFavoritesModal() {
-        renderFavoritesModal();
-        favoritesModal.style.display = "flex";
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeFavoritesModal() {
-        favoritesModal.style.display = "none";
-        document.body.style.overflow = "auto";
-      }
-
-      function toggleMobileMenu() {
-        const isHidden = mobileMenu.classList.toggle("hidden");
-        mobileMenuIcon.textContent = isHidden ? "menu" : "close";
-      }
       
-      // --- LÓGICA ESPECÍFICA DE ESTA PÁGINA ---
+      const descriptionPanel = document.getElementById('description-panel');
+      const specsPanel = document.getElementById('specs-panel');
+      const reviewsPanel = document.getElementById('reviews-panel');
 
-      /**
-       * (NUEVO) Maneja el cambio de cantidad
-       */
       function handleQuantityChange(amount) {
         let currentValue = parseInt(quantityInput.value) || 1;
         let newValue = currentValue + amount;
         if (newValue < 1) {
-          newValue = 1; // No permitir menos de 1
+          newValue = 1;
         }
         quantityInput.value = newValue;
       }
 
-      /**
-       * (NUEVO) Maneja el clic en las pestañas
-       */
       function handleTabClick(event) {
         const clickedButton = event.currentTarget;
-        const targetPanelId = clickedButton.dataset.tab + '-panel'; // p.ej. 'description-panel'
+        const targetPanelId = clickedButton.dataset.tab + '-panel';
 
-        // 1. Ocultar todos los paneles
-        tabPanels.forEach(panel => {
+        tabPanels.forEach((panel) => {
           panel.classList.add('hidden');
         });
 
-        // 2. Quitar estado activo de todos los botones
-        tabButtons.forEach(button => {
+        tabButtons.forEach((button) => {
           button.classList.remove('text-primary', 'border-primary');
-          button.classList.add('text-gray-500', 'dark:text-gray-400', 'border-transparent', 'hover:border-gray-300', 'dark:hover:border-gray-600');
+          button.classList.add(
+            'text-gray-500',
+            'dark:text-gray-400',
+            'border-transparent',
+            'hover:border-gray-300',
+            'dark:hover:border-gray-600'
+          );
         });
 
-        // 3. Mostrar el panel objetivo
         const targetPanel = document.getElementById(targetPanelId);
         if (targetPanel) {
           targetPanel.classList.remove('hidden');
         }
 
-        // 4. Poner estado activo en el botón clicado
         clickedButton.classList.add('text-primary', 'border-primary');
-        clickedButton.classList.remove('text-gray-500', 'dark:text-gray-400', 'border-transparent', 'hover:border-gray-300', 'dark:hover:border-gray-600');
+        clickedButton.classList.remove(
+          'text-gray-500',
+          'dark:text-gray-400',
+          'border-transparent',
+          'hover:border-gray-300',
+          'dark:hover:border-gray-600'
+        );
       }
 
-      /**
-       * Rellena la página con la información del producto.
-       */
       function renderProductDetails(product) {
         document.title = `${product.name} - TechEase`;
         breadcrumbCategory.textContent = product.category;
-        breadcrumbCategory.href = `index.html?category=${product.category}`; // Enlazar de vuelta
+        breadcrumbCategory.href = `index.html?category=${product.category}`;
         breadcrumbProductName.textContent = product.name;
         productImageMain.src = product.img;
         productImageMain.alt = product.alt;
         productBrand.textContent = product.brand;
         productName.textContent = product.name;
-        productDescription.textContent = product.alt; // Usando 'alt' como descripción corta
+        productDescription.textContent = product.alt;
         productPrice.textContent = `S/ ${product.price.toFixed(2)}`;
-      }
-
-      /**
-       * Actualiza el estado visual del botón de favorito en esta página.
-       */
-      function updateFavoriteButtonState(productId) {
-         const icon = addToFavBtn.querySelector('span.material-symbols-outlined');
-         const text = addToFavBtn.querySelector('span.text');
-         
-         if (favorites.includes(productId)) {
-            icon.classList.add('filled', 'text-red-500');
-            text.textContent = "Quitar de Favoritos";
-         } else {
-            icon.classList.remove('filled', 'text-red-500');
-            text.textContent = "Añadir a Favoritos";
-         }
-      }
-
-      /**
-       * Asigna los listeners a los botones de esta página.
-       */
-      function setupDetailButtonListeners(product) {
-        // Botón Añadir al Carrito
-        addToCartBtn.addEventListener('click', () => {
-            // (NUEVO) Obtener la cantidad del input
-            const quantity = parseInt(quantityInput.value) || 1;
-            // (NUEVO) Añadir el producto N veces
-            for (let i = 0; i < quantity; i++) {
-              cart.push(product);
-            }
-            saveCart(); // Persistir
-            updateCartBadge();
-        });
-
-        // Botón Añadir a Favoritos
-        addToFavBtn.addEventListener('click', () => {
-            const id = product.id;
-            if (favorites.includes(id)) {
-                favorites = favorites.filter((favId) => favId !== id);
-            } else {
-                favorites.push(id);
-            }
-            saveFavorites(); // Persistir
-            updateFavoritesBadge();
-            updateFavoriteButtonState(id); // Actualizar el botón de esta página
-        });
-      }
-
-      // --- INITIALIZATION ---
-      document.addEventListener("DOMContentLoaded", () => {
-        // Cargar producto de la URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const productId = parseInt(urlParams.get('id'));
-        const product = allProducts.find(p => p.id === productId);
-
-        if (product) {
-            renderProductDetails(product);
-            setupDetailButtonListeners(product);
-            updateFavoriteButtonState(productId); // Estado inicial del botón
-        } else {
-            // Manejar producto no encontrado
-            mainContent.innerHTML = `
-              <div class="text-center py-24">
-                <span class="material-symbols-outlined text-8xl mb-4 text-red-500">error</span>
-                <h1 class="text-2xl font-bold">Producto no encontrado</h1>
-                <p class="text-gray-500 dark:text-gray-400">El producto que buscas no existe o fue removido.</p>
-                <a href="index.html" class="mt-8 inline-block h-12 px-6 rounded-lg bg-primary text-white font-bold hover:bg-primary/90 transition leading-[3rem]">Volver al Inicio</a>
-              </div>
-            `;
-        }
         
-        // Listeners comunes (modales, menú, etc.)
-        cartButton.addEventListener("click", openCartModal);
-        favoritesButton.addEventListener("click", openFavoritesModal);
-        mobileCartButton.addEventListener("click", openCartModal);
-        mobileFavoritesButton.addEventListener("click", openFavoritesModal);
-        closeCartModalButton.addEventListener("click", closeCartModal);
-        closeFavoritesModalButton.addEventListener("click", closeFavoritesModal);
-        cartModal.addEventListener("click", (event) => {
-          if (event.target === cartModal) closeCartModal();
-        });
-        favoritesModal.addEventListener("click", (event) => {
-          if (event.target === favoritesModal) closeFavoritesModal();
-        });
-        cartModalBody.addEventListener("click", handleCartModalClick);
-        mobileMenuToggle.addEventListener("click", toggleMobileMenu);
+        descriptionPanel.innerHTML = product.description || '<p>No hay descripción disponible.</p>';
+        specsPanel.innerHTML = product.specs || '<p>No hay especificaciones disponibles.</p>';
+        reviewsPanel.innerHTML = product.reviews || '<p>No hay reseñas disponibles.</p>';
+      }
 
-        // --- (NUEVO) Listeners para Cantidad y Pestañas ---
-        if (product) { // Solo añadir si el producto existe
-          quantityDecreaseBtn.addEventListener('click', () => handleQuantityChange(-1));
-          quantityIncreaseBtn.addEventListener('click', () => handleQuantityChange(1));
-          
-          tabButtons.forEach(button => {
-            button.addEventListener('click', handleTabClick);
-          });
+      function updateFavoriteButtonState(productId) {
+        const quantityInCart = getProductQuantityInCart(productId);
+        if (quantityInCart > 0) {
+          return;
         }
 
-        // Cargar estado inicial de los badges
-        updateCartBadge();
-        updateFavoritesBadge();
-      });
+        const icon = addToFavBtn.querySelector('span.material-symbols-outlined');
+        const text = addToFavBtn.querySelector('span.text');
+
+        if (favorites.includes(productId)) {
+          icon.classList.add('filled', 'text-red-500');
+          text.textContent = "Quitar de Favoritos";
+        } else {
+          icon.classList.remove('filled', 'text-red-500');
+          text.textContent = "Añadir a Favoritos";
+        }
+      }
+
+      function renderDynamicButtons(product) {
+        const quantityInCart = getProductQuantityInCart(product.id);
+        const btn = document.getElementById('add-to-favorite-detail-btn');
+        const icon = btn.querySelector('span.material-symbols-outlined');
+        const text = btn.querySelector('span.text');
+
+        if (quantityInCart > 0) {
+          text.textContent = 'Eliminar del Carrito';
+          icon.textContent = 'delete_forever';
+          btn.classList.remove('bg-gray-200', 'dark:bg-gray-800', 'text-gray-900', 'dark:text-white', 'hover:bg-gray-300', 'dark:hover:bg-gray-700');
+          btn.classList.add('bg-red-600', 'text-white', 'hover:bg-red-700', 'dark:bg-red-700', 'dark:hover:bg-red-800');
+          icon.classList.remove('filled', 'text-red-500');
+        } else {
+          btn.classList.add('bg-gray-200', 'dark:bg-gray-800', 'text-gray-900', 'dark:text-white', 'hover:bg-gray-300', 'dark:hover:bg-gray-700');
+          btn.classList.remove('bg-red-600', 'text-white', 'hover:bg-red-700', 'dark:bg-red-700', 'dark:hover:bg-red-800');
+          icon.textContent = 'favorite';
+          updateFavoriteButtonState(product.id);
+        }
+      }
+
+      function setupDetailButtonListeners(product) {
+        addToCartBtn.addEventListener('click', () => {
+          const quantity = parseInt(quantityInput.value) || 1;
+          for (let i = 0; i < quantity; i++) {
+            cart.push(product);
+          }
+          saveCart();
+          updateCartBadge();
+          renderDynamicButtons(product);
+        });
+
+        addToFavBtn.addEventListener('click', () => {
+          const id = product.id;
+          const quantityInCart = getProductQuantityInCart(id);
+
+          if (quantityInCart > 0) {
+            removeAllOfProductFromCart(id);
+            saveCart();
+            updateCartBadge();
+          } else {
+            if (favorites.includes(id)) {
+              favorites = favorites.filter((favId) => favId !== id);
+            } else {
+              favorites.push(id);
+            }
+            saveFavorites();
+            updateFavoritesBadge();
+          }
+          renderDynamicButtons(product);
+        });
+      }
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const productId = parseInt(urlParams.get('id'));
+      const product = allProducts.find((p) => p.id === productId);
+
+      if (product) {
+        renderProductDetails(product);
+        setupDetailButtonListeners(product);
+        renderDynamicButtons(product);
+
+        quantityDecreaseBtn.addEventListener('click', () =>
+          handleQuantityChange(-1)
+        );
+        quantityIncreaseBtn.addEventListener('click', () =>
+          handleQuantityChange(1)
+        );
+
+        tabButtons.forEach((button) => {
+          button.addEventListener('click', handleTabClick);
+        });
+      } else {
+        mainContent.innerHTML = `
+          <div class="text-center py-24">
+            <span class="material-symbols-outlined text-8xl mb-4 text-red-500">error</span>
+            <h1 class="text-2xl font-bold">Producto no encontrado</h1>
+            <p class="text-gray-500 dark:text-gray-400">El producto que buscas no existe o fue removido.</p>
+            <a href="index.html" class="mt-8 inline-block h-12 px-6 rounded-lg bg-primary text-white font-bold hover:bg-primary/90 transition leading-[3rem]">Volver al Inicio</a>
+          </div>
+        `;
+      }
     </script>
   </body>
 </html>
