@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -66,7 +66,6 @@
           <div
             class="layout-content-container flex w-full flex-col max-w-6xl px-4 sm:px-6 lg:px-8"
           >
-            <!-- CABECERA IDÉNTICA A INDEX.HTML (para consistencia) -->
             <header
               class="flex items-center justify-between whitespace-nowrap border-b border-gray-200 dark:border-white/10 py-4"
             >
@@ -138,7 +137,6 @@
               </div>
             </header>
 
-            <!-- Menú Móvil (Oculto por defecto) -->
             <div
               id="mobile-menu"
               class="hidden md:hidden bg-background-light dark:bg-background-dark border-b border-gray-200 dark:border-white/10"
@@ -156,7 +154,7 @@
                   <button id="mobile-favorites-button" class="relative flex-1 flex items-center justify-center gap-2 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10">
                     <span class="material-symbols-outlined">favorite</span>
                     <span>Favoritos</span>
-                     <span
+                      <span
                       id="mobile-favorites-badge"
                       class="absolute top-1 right-1 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-primary rounded-full"
                       style="display: none"
@@ -166,7 +164,7 @@
                   <button id="mobile-cart-button" class="relative flex-1 flex items-center justify-center gap-2 h-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-white/10">
                     <span class="material-symbols-outlined">shopping_cart</span>
                     <span>Carrito</span>
-                     <span
+                      <span
                       id="mobile-cart-badge"
                       class="absolute top-1 right-1 flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-primary rounded-full"
                       style="display: none"
@@ -176,7 +174,6 @@
                 </div>
               </nav>
             </div>
-            <!-- FIN DE CABECERA -->
             
             <main class="w-full max-w-7xl mx-auto px-0 py-8 md:py-12">
               <div class="flex flex-wrap gap-2 mb-6">
@@ -208,11 +205,8 @@
               </div>
               <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-12">
                 <div class="lg:col-span-2">
-                  <!-- Contenedor de items del carrito (se llenará con JS) -->
                   <div id="checkout-items-container" class="flex flex-col gap-px overflow-hidden rounded-xl border border-gray-200 dark:border-[#283339] bg-gray-200 dark:bg-[#283339]">
-                    <!-- Los items se insertarán aquí -->
                   </div>
-                  <!-- Mensaje de carrito vacío -->
                   <div id="checkout-empty-message" class="hidden text-center py-16 bg-background-light dark:bg-background-dark rounded-xl border border-gray-200 dark:border-[#283339]">
                       <span class="material-symbols-outlined text-8xl mb-4 text-gray-400">shopping_cart_off</span>
                       <p class="text-2xl font-bold text-gray-900 dark:text-white">Tu carrito está vacío</p>
@@ -237,7 +231,7 @@
                           <span>Gratis</span>
                         </div>
                         <div class="flex justify-between text-sm text-gray-600 dark:text-[#9cb0ba]">
-                          <span>Impuestos (8%)</span>
+                          <span>Impuestos (18%)</span>
                           <span id="checkout-tax">S/ 0.00</span>
                         </div>
                         <div
@@ -251,6 +245,7 @@
                     </div>
                     <div class="flex flex-col gap-4">
                       <button
+                        id="finalize-purchase-button"
                         class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-primary text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] hover:bg-primary/90 transition-colors shadow"
                       >
                         Finalizar Compra
@@ -287,7 +282,6 @@
       </div>
     </div>
 
-    <!-- MODALES IDÉNTICOS A INDEX.HTML -->
     <div
       id="cart-modal"
       class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm"
@@ -310,7 +304,6 @@
           </button>
         </div>
         <div id="cart-modal-body" class="p-6 max-h-[60vh] overflow-y-auto">
-          <!-- Items del carrito se insertarán aquí -->
         </div>
         <div
           class="border-t border-gray-200 dark:border-white/10 p-4 bg-gray-50 dark:bg-white/5 rounded-b-xl"
@@ -325,7 +318,6 @@
               >S/ 0.00</span
             >
           </div>
-          <!-- MODIFICADO: De <button> a <a> para enlazar -->
           <a
             href="checkout.html"
             class="w-full h-12 rounded-lg bg-primary text-white font-bold hover:bg-primary/90 transition flex items-center justify-center"
@@ -358,15 +350,11 @@
           </button>
         </div>
         <div id="favorites-modal-body" class="p-6 max-h-[60vh] overflow-y-auto">
-          <!-- Items favoritos se insertarán aquí -->
         </div>
       </div>
     </div>
-    <!-- FIN DE MODALES -->
 
-    <!-- Plantilla de Script -->
     <script type="module">
-      // --- DATABASE (IDÉNTICA A INDEX.HTML) ---
       const allProducts = [
         { id: 1, name: "Audífonos WH-1000XM5", category: "Audifonos", brand: "Sony", price: 1499.90, img: "https://placehold.co/600x600/101c22/f5f7f8?text=WH-1000XM5", alt: "Audífonos Sony WH-1000XM5 con cancelación de ruido." },
         { id: 2, name: "AirPods Pro 2da Gen", category: "Audifonos", brand: "Apple", price: 1099.00, img: "https://placehold.co/600x600/101c22/f5f7f8?text=AirPods+Pro+2", alt: "Audífonos inalámbricos Apple AirPods Pro 2." },
@@ -379,11 +367,9 @@
         { id: 9, name: "Cargador Inalámbrico 3-en-1", category: "Cargadores", brand: "Belkin", price: 499.00, img: "https://placehold.co/600x600/101c22/f5f7f8?text=Belkin+3-en-1", alt: "Estación de carga inalámbrica Belkin 3-en-1 MagSafe." },
       ];
 
-      // --- STATE (IDÉNTICO A INDEX.HTML) ---
       let cart = JSON.parse(localStorage.getItem('techEaseCart')) || [];
       let favorites = JSON.parse(localStorage.getItem('techEaseFavorites')) || [];
 
-      // --- DOM SELECTORS (Comunes) ---
       const cartButton = document.getElementById("cart-button");
       const cartBadge = document.getElementById("cart-badge");
       const cartModal = document.getElementById("cart-modal");
@@ -405,16 +391,14 @@
       const mobileMenu = document.getElementById("mobile-menu");
       const mobileMenuIcon = mobileMenuToggle.querySelector("span");
       
-      // --- (NUEVO) DOM SELECTORS (Checkout) ---
       const checkoutItemsContainer = document.getElementById('checkout-items-container');
       const checkoutEmptyMessage = document.getElementById('checkout-empty-message');
       const checkoutSubtotal = document.getElementById('checkout-subtotal');
       const checkoutTax = document.getElementById('checkout-tax');
       const checkoutTotal = document.getElementById('checkout-total');
       const orderSummaryContainer = document.querySelector('.lg\\:col-span-1 .sticky');
+      const finalizePurchaseButton = document.getElementById('finalize-purchase-button');
 
-
-      // --- FUNCIONES DE PERSISTENCIA ---
       function saveCart() {
         localStorage.setItem('techEaseCart', JSON.stringify(cart));
       }
@@ -422,7 +406,6 @@
         localStorage.setItem('techEaseFavorites', JSON.stringify(favorites));
       }
 
-      // --- RENDER FUNCTIONS (Comunes) ---
       function renderCartModal() {
         cartModalBody.innerHTML = "";
         let total = 0;
@@ -485,7 +468,6 @@
         });
       }
 
-      // --- EVENT HANDLERS & LOGIC (Comunes) ---
       function updateCartBadge() {
         const count = cart.length;
         const badges = [cartBadge, mobileCartBadge];
@@ -529,7 +511,7 @@
         saveCart();
         renderCartModal();
         updateCartBadge();
-        renderCheckoutPage(); // (NUEVO) Actualizar la página de checkout si estamos en ella
+        renderCheckoutPage();
       }
 
       function openCartModal() {
@@ -559,16 +541,11 @@
         mobileMenuIcon.textContent = isHidden ? "menu" : "close";
       }
       
-      // --- (NUEVO) LÓGICA DE LA PÁGINA DE CHECKOUT ---
-
-      /**
-       * Renderiza la lista de items y los totales en la página de checkout.
-       */
       function renderCheckoutPage() {
-        if (!checkoutItemsContainer) return; // Solo ejecutar en la página de checkout
+        if (!checkoutItemsContainer) return;
 
         checkoutItemsContainer.innerHTML = "";
-        let subtotal = 0;
+        let totalAggregated = 0;
 
         const cartItems = cart.reduce((acc, product) => {
           acc[product.id] = acc[product.id] || { ...product, quantity: 0 };
@@ -588,7 +565,7 @@
           itemKeys.forEach(key => {
             const item = cartItems[key];
             const itemTotal = item.price * item.quantity;
-            subtotal += itemTotal;
+            totalAggregated += itemTotal;
 
             const itemHTML = `
             <div class="flex flex-col sm:flex-row gap-4 bg-background-light dark:bg-background-dark px-4 py-4 justify-between items-start">
@@ -603,7 +580,7 @@
               <div class="flex sm:flex-col justify-between items-end w-full sm:w-auto gap-4 pl-0 sm:pl-4">
                 <div class="flex items-center gap-2 text-gray-900 dark:text-white">
                   <button data-action="decrease" data-product-id="${item.id}" class="text-lg font-medium leading-normal flex h-7 w-7 items-center justify-center rounded-full bg-gray-200 dark:bg-[#283339] cursor-pointer hover:bg-gray-300 dark:hover:bg-[#3a4750] transition-colors">-</button>
-                  <input class="text-base font-medium leading-normal w-6 p-0 text-center bg-transparent focus:outline-0 focus:ring-0 focus:border-none border-none [appearance:textfield] [&amp;::-webkit-inner-spin-button]:appearance-none [&amp;::-webkit-outer-spin-button]:appearance-none" type="number" value="${item.quantity}" readonly />
+                  <input class="text-base font-medium leading-normal w-6 p-0 text-center bg-transparent focus:outline-0 focus:ring-0 focus:border-none border-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none" type="number" value="${item.quantity}" readonly />
                   <button data-action="increase" data-product-id="${item.id}" class="text-lg font-medium leading-normal flex h-7 w-7 items-center justify-center rounded-full bg-gray-200 dark:bg-[#283339] cursor-pointer hover:bg-gray-300 dark:hover:bg-[#3a4750] transition-colors">+</button>
                 </div>
                 <div class="flex items-center gap-4">
@@ -618,18 +595,15 @@
           });
         }
         
-        // Calcular y mostrar totales
-        const tax = subtotal * 0.08; // 8% como en el ejemplo
-        const total = subtotal + tax;
+        const total = totalAggregated;
+        const subtotal = total / 1.18;
+        const tax = total - subtotal;
 
         checkoutSubtotal.textContent = `S/ ${subtotal.toFixed(2)}`;
         checkoutTax.textContent = `S/ ${tax.toFixed(2)}`;
         checkoutTotal.textContent = `S/ ${total.toFixed(2)}`;
       }
 
-      /**
-       * Maneja los clics en los botones de la página de checkout (delegación).
-       */
       function handleCheckoutInteraction(event) {
         const button = event.target.closest("button");
         if (!button) return;
@@ -655,18 +629,59 @@
         saveCart();
         renderCheckoutPage();
         updateCartBadge();
-        renderCartModal(); // Sincronizar el modal también
+        renderCartModal();
       }
 
-      // --- INITIALIZATION ---
+      function handleFinalizePurchase() {
+          if (cart.length === 0) {
+              alert("Tu carrito está vacío. Añade productos antes de finalizar la compra.");
+              return;
+          }
+
+          const cartItems = cart.reduce((acc, product) => {
+              acc[product.id] = acc[product.id] || { ...product, quantity: 0 };
+              acc[product.id].quantity += 1;
+              return acc;
+          }, {});
+          
+          let totalAmount = 0;
+          Object.values(cartItems).forEach(item => {
+              totalAmount += item.price * item.quantity;
+          });
+
+          const shipping = 0;
+          const total = totalAmount + shipping;
+          const subtotal = total / 1.18;
+          const tax = total - subtotal;
+
+          const orderData = {
+              orderNumber: `#TE${Date.now().toString().slice(-8)}`,
+              items: Object.values(cartItems),
+              subtotal: subtotal.toFixed(2),
+              shipping: shipping.toFixed(2),
+              tax: tax.toFixed(2),
+              total: total.toFixed(2),
+              estimatedDelivery: "25 - 28 de Noviembre"
+          };
+
+          sessionStorage.setItem('techEaseLastOrder', JSON.stringify(orderData));
+
+          cart = [];
+          saveCart();
+          
+          window.location.href = "confirmation.html";
+      }
+      
       document.addEventListener("DOMContentLoaded", () => {
-        // --- Lógica de esta página ---
-        renderCheckoutPage(); // Renderizar la página de checkout
+        renderCheckoutPage();
         if(checkoutItemsContainer) {
           checkoutItemsContainer.addEventListener('click', handleCheckoutInteraction);
         }
 
-        // --- Listeners comunes (modales, menú, etc.) ---
+        if(finalizePurchaseButton) {
+            finalizePurchaseButton.addEventListener('click', handleFinalizePurchase);
+        }
+
         cartButton.addEventListener("click", openCartModal);
         favoritesButton.addEventListener("click", openFavoritesModal);
         mobileCartButton.addEventListener("click", openCartModal);
@@ -683,7 +698,6 @@
         cartModalBody.addEventListener("click", handleCartModalClick);
         mobileMenuToggle.addEventListener("click", toggleMobileMenu);
 
-        // Cargar estado inicial de los badges
         updateCartBadge();
         updateFavoritesBadge();
       });
