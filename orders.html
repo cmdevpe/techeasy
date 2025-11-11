@@ -166,7 +166,6 @@
         }
 
         document.addEventListener("DOMContentLoaded", () => {
-             // Redirección de protección
             const userData = sessionStorage.getItem('techEaseUser');
             if (!userData) {
                 sessionStorage.setItem('techEaseRedirectTo', window.location.href);
