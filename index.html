@@ -197,7 +197,7 @@
         updateFavoritesBadge,
         getProductQuantityInCart,
         removeSingleInstanceFromCart,
-        removeAllOfProductFromCart
+        removeAllOfProductFromCart,
       } from "./js/app.js";
 
       initializeApp();
@@ -271,7 +271,7 @@
           const isFavorite = favorites.includes(product.id);
           const quantityInCart = getProductQuantityInCart(product.id);
 
-          let actionsHtml = '';
+          let actionsHtml = "";
           if (quantityInCart === 0) {
             actionsHtml = `
               <button data-product-id="${product.id}" class="add-to-cart-btn mt-3 w-full h-10 rounded-lg bg-primary/10 text-primary dark:bg-primary/20 dark:text-primary font-bold hover:bg-primary hover:text-white dark:hover:bg-primary dark:hover:text-white transition border border-primary/20">
@@ -297,23 +297,39 @@
               </div>
             `;
           }
-          
+
           const productCard = `
           <div class="flex flex-col gap-3 group">
             <div class="relative w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-gray-200 dark:bg-white/5 overflow-hidden">
               <a href="product-detail.html?id=${product.id}">
-                <img alt="${product.alt}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="${product.img}" />
+                <img alt="${
+                  product.alt
+                }" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" src="${
+            product.img
+          }" />
               </a>
-              <button data-product-id="${product.id}" class="favorite-btn absolute top-3 right-3 flex items-center justify-center h-8 w-8 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur-sm text-gray-800 dark:text-white hover:bg-white dark:hover:bg-black transition">
-                <span class="material-symbols-outlined text-lg ${isFavorite ? "filled text-red-500" : ""}">favorite</span>
+              <button data-product-id="${
+                product.id
+              }" class="favorite-btn absolute top-3 right-3 flex items-center justify-center h-8 w-8 rounded-full bg-white/50 dark:bg-black/50 backdrop-blur-sm text-gray-800 dark:text-white hover:bg-white dark:hover:bg-black transition">
+                <span class="material-symbols-outlined text-lg ${
+                  isFavorite ? "filled text-red-500" : ""
+                }">favorite</span>
               </button>
             </div>
             <div>
-              <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">${product.brand}</p>
-              <a href="product-detail.html?id=${product.id}" class="hover:underline">
-                <p class="text-gray-900 dark:text-white text-base font-medium leading-normal truncate">${product.name}</p>
+              <p class="text-gray-500 dark:text-gray-400 text-sm font-normal leading-normal">${
+                product.brand
+              }</p>
+              <a href="product-detail.html?id=${
+                product.id
+              }" class="hover:underline">
+                <p class="text-gray-900 dark:text-white text-base font-medium leading-normal truncate">${
+                  product.name
+                }</p>
               </a>
-              <p class="text-gray-800 dark:text-gray-200 text-base font-bold leading-normal mt-1">S/ ${product.price.toFixed(2)}</p>
+              <p class="text-gray-800 dark:text-gray-200 text-base font-bold leading-normal mt-1">S/ ${product.price.toFixed(
+                2
+              )}</p>
               
               <div class="product-actions">
                 ${actionsHtml}
@@ -329,19 +345,20 @@
       function handleProductGridClick(event) {
         const button = event.target.closest("button");
         if (!button) return;
-
         const productIdStr = button.dataset.productId;
         if (!productIdStr) return;
-        
         const productId = parseInt(productIdStr);
         const product = allProducts.find((p) => p.id === productId);
-
         let cartChanged = false;
 
         if (button.classList.contains("favorite-btn")) {
           const icon = button.querySelector("span");
+
           if (favorites.includes(productId)) {
-            favorites = favorites.filter((favId) => favId !== productId);
+            const index = favorites.indexOf(productId);
+            if (index > -1) {
+              favorites.splice(index, 1);
+            }
             icon.classList.remove("filled", "text-red-500");
           } else {
             favorites.push(productId);
@@ -349,7 +366,8 @@
           }
           saveFavorites();
           updateFavoritesBadge();
-          return; 
+          renderProducts();
+          return;
         }
 
         if (!product) return;
@@ -361,14 +379,14 @@
 
         if (button.classList.contains("quantity-change-btn")) {
           const action = button.dataset.action;
-          if (action === 'increase') {
+          if (action === "increase") {
             cart.push(product);
             cartChanged = true;
-          } else if (action === 'decrease') {
+          } else if (action === "decrease") {
             cartChanged = removeSingleInstanceFromCart(productId);
           }
         }
-        
+
         if (button.classList.contains("remove-all-btn")) {
           cartChanged = removeAllOfProductFromCart(productId);
         }
@@ -376,7 +394,7 @@
         if (cartChanged) {
           saveCart();
           updateCartBadge();
-          renderProducts(); 
+          renderProducts();
         }
       }
 
@@ -400,14 +418,13 @@
         searchTerm = event.target.value;
         renderProducts();
       }
-      
+
       renderCategories();
       renderProducts();
 
       productGrid.addEventListener("click", handleProductGridClick);
       categoryButtonsContainer.addEventListener("click", handleCategoryClick);
       searchInput.addEventListener("input", handleSearchInput);
-
     </script>
   </body>
 </html>
